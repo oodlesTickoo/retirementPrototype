@@ -1,0 +1,71 @@
+.slf-r-gradient-whimsical-bot {
+    margin-bottom: 0px;
+}
+
+.slf-r-gradient-whimsical-bot {
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fbcd52', endColorstr='#eaab00', GradientType=0);
+    /* IE6-9 */
+    background: url(../images/icon-whimsical-title-bar.png) top center no-repeat, -webkit-radial-gradient(#fbcd52, #eaab00);
+    background: url(../images/icon-whimsical-title-bar.png) top center no-repeat, -o-radial-gradient(#fbcd52, #eaab00);
+    background: url(../images/icon-whimsical-title-bar.png) top center no-repeat, -moz-radial-gradient(#fbcd52, #eaab00);
+    background: url(../images/icon-whimsical-title-bar.png) top center no-repeat, radial-gradient(#fbcd52, #eaab00);
+    min-height: 125px;
+    margin: 0 0 40px;
+}
+
+@media (max-width: 319px) {
+    .title-bar {
+        margin-top: 24px;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .title-bar {
+        margin-top: 16px;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .title-bar {
+        margin-top: 36px;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .title-bar {
+        margin-top: 36px;
+        padding-left: 0;
+    }
+}
+
+.display-table {
+    display: table;
+}
+
+.display-table-cell {
+    display: table-cell;
+}
+
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text {
+    background-color: #f2f5f6;
+    padding: 30px;
+    width: 50%;
+    text-align: center;
+}
