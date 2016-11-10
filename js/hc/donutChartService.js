@@ -12,7 +12,7 @@ app.service('DonutChartServiceHc',function(){
     var SSPercentage = optimisedSS/total * 100;
 
     var length = $("#highcharts-6").width;
-    // console.log(length);
+    console.log(length);
 
     $('#donutContainer').highcharts({
         chart: {
