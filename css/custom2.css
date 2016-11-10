@@ -10,7 +10,7 @@ body{
 	margin-bottom:20px;
 }
 .boxes form label{
-	font-size:16px;
+	/*font-size:16px;*/
 	font-weight: 500;
 	position: relative;
 	top:7px;
@@ -21,6 +21,14 @@ body{
 .page-content .boxes .slider-div{
 	position:relative;
 	top:7px;
+}
+.page-content .boxes .bootstrap-select .btn{
+	    font-weight: bold;
+    color: #003946;
+}
+.page-content .boxes .bootstrap-select ul.dropdown-menu span.text{
+font-weight: bold;
+    color: #003946;
 }
 .icon-container{
     text-align: center;
@@ -42,7 +50,7 @@ background-color: #fbefcc;
 .page-content .account-details form input{
 	text-align: right;
     font-weight: bold;
-    color: #003946;;
+    color: #003946;
 }
 
 
