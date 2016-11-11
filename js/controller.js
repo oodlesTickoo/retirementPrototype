@@ -21,37 +21,36 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
 
-    $timeout(function() {
-        $('.selectpickerSingle').selectpicker({
-            style: 'btn-info',
-            size: 2,
-        });
+    // $timeout(function() {
+    //     $('.selectpickerSingle').selectpicker({
+    //         style: 'btn-info',
+    //         size: 2,
+    //     });
 
-        $('.selectpickerSpouse').selectpicker({
-            style: 'btn-info',
-            size: 2
-        });
-        $('.selectpickerSingle option[value="1"]').attr("selected", true);
-        $('.selectpickerSpouse option[value="1"]').attr("selected", true);
-        $('.selectpickerSingle').selectpicker('refresh');
-        $('.selectpickerSpouse').selectpicker('refresh');
-    });
+    //     $('.selectpickerSpouse').selectpicker({
+    //         style: 'btn-info',
+    //         size: 2
+    //     });
+    //     $('.selectpickerSingle option[value="1"]').attr("selected", true);
+    //     $('.selectpickerSpouse option[value="1"]').attr("selected", true);
+    //     $('.selectpickerSingle').selectpicker('refresh');
+    //     $('.selectpickerSpouse').selectpicker('refresh');
+    // });
 
-    $scope.showPensionOption = true;
-    $scope.showPensionOptionSpouse = true;
 
-    $('.selectpickerSingle').on('change', function() {
-        var selected = $('.selectpickerSingle option:selected').val();
-        $scope.showPensionOption = selected == 1;
-        // calculateFinal();
-        $timeout(0);
-    });
 
-    $('.selectpickerSpouse').on('change', function() {
-        var selected = $('.selectpickerSpouse option:selected').val();
-        $scope.showPensionOptionSpouse = selected == 1;
-        $timeout(0);
-    });
+    // $('.selectpickerSingle').on('change', function() {
+    //     var selected = $('.selectpickerSingle option:selected').val();
+    //     $scope.showPensionOption = selected == 1;
+    //     // calculateFinal();
+    //     $timeout(0);
+    // });
+
+    // $('.selectpickerSpouse').on('change', function() {
+    //     var selected = $('.selectpickerSpouse option:selected').val();
+    //     $scope.showPensionOptionSpouse = selected == 1;
+    //     $timeout(0);
+    // });
 
     var initDate = new Date();
     initDate.setYear(1959);
@@ -181,9 +180,6 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.pensionDrawdownBase = 40000;
     $scope.pensionDrawdownBaseSpouse = 30000;
 
-
-
-
     $scope.overlay = false;
 
     $scope.age = AgeCalculator.getAge($scope.dob, $scope.fy);
@@ -193,18 +189,60 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     var leMember2 = $scope.genderOptionSpouse ? maleExpectancy[$scope.ageSpouse] : femaleExpectancy[$scope.ageSpouse];
 
+    $scope.showPensionOption = true;
+    $scope.showPensionOptionSpouse = true;
 
-    $scope.genderChange = function(bool) {
-        $scope.genderOption = bool;
+    $('#select-spouse-option').on('changed.bs.select', function(e){
+        $scope.spouseOption = $(this).selectpicker('val') <= 0; 
+        console.log("spouse option set to",$scope.spouseOption);
+        $timeout(0);
+    });
+
+    $('#select-gender-option').on('changed.bs.select', function(e){
+        $scope.genderOption = $(this).selectpicker('val') <= 0; 
+        console.log("gender option set to",$scope.genderOption);
+        $timeout(0);
         leMember1 = $scope.genderOption ? maleExpectancy[$scope.age] : femaleExpectancy[$scope.age];
-        // calculateFinal();
-    };
+    });
 
-    $scope.genderChangeSpouse = function(bool) {
-        $scope.genderOptionSpouse = bool;
+    $('#select-gender-option-spouse').on('changed.bs.select', function(e){
+        $scope.genderOptionSpouse = $(this).selectpicker('val') > 0; 
+        console.log("spouse gender option set to",$scope.genderOptionSpouse);
+        $timeout(0);
         leMember2 = $scope.genderOptionSpouse ? maleExpectancy[$scope.ageSpouse] : femaleExpectancy[$scope.ageSpouse];
-        // calculateFinal();
-    };
+
+    });
+
+    $('#select-house-option').on('changed.bs.select', function(e){
+        $scope.houseOption = $(this).selectpicker('val') <= 0; 
+        console.log("house option set to",$scope.houseOption);
+        $timeout(0);
+    });
+
+    $('#select-pension-drawdown').on('changed.bs.select', function(e){
+       $scope.showPensionOption = $(this).selectpicker('val') <= 0; 
+        console.log("choose pension option set to",$scope.showPensionOption);
+        $timeout(0);
+    });
+
+    $('#select-pension-drawdown-spouse').on('changed.bs.select', function(e){
+       $scope.showPensionOptionSpouse = $(this).selectpicker('val') <= 0; 
+        console.log("choose spouse pension option set to",$scope.showPensionOptionSpouse);
+        $timeout(0);
+    });
+
+
+    // $scope.genderChange = function(bool) {
+    //     $scope.genderOption = bool;
+    //     leMember1 = $scope.genderOption ? maleExpectancy[$scope.age] : femaleExpectancy[$scope.age];
+    //     // calculateFinal();
+    // };
+
+    // $scope.genderChangeSpouse = function(bool) {
+    //     $scope.genderOptionSpouse = bool;
+    //     leMember2 = $scope.genderOptionSpouse ? maleExpectancy[$scope.ageSpouse] : femaleExpectancy[$scope.ageSpouse];
+    //     // calculateFinal();
+    // };
 
     $scope.retirementAge = 65;
     $scope.preservationAge = 55;
@@ -1234,7 +1272,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             });
         }
 
-        // changeCCLimit();
+        changeCCLimit();
     }
 
 
@@ -2112,6 +2150,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $scope.calculateFinal = function(isValid) {
 
+        console.log("calculating");
+
         if (isValid) {
 
             // console.log('chaling');
@@ -2315,6 +2355,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                 AreaChartService.createChart(member1APArray.slice(0, 5 + Math.max(Math.ceil(leMember1), Math.ceil(leMember2))), member2APArray.slice(0, 5 + Math.max(Math.ceil(leMember1), Math.ceil(leMember2))), member1PensionArray.slice(0, 5 + Math.max(Math.ceil(leMember1), Math.ceil(leMember2))), member2PensionArray.slice(0, 5 + Math.max(Math.ceil(leMember1), Math.ceil(leMember2))), leMember1, leMember2, true, targetIncome);
 
             }
+            console.log("calculated");
         } else {
             $("#myModal").modal('show');
             $("html, body").animate({ scrollTop: 0 }, "slow");
