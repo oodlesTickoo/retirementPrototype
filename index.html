@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/custom2.css">
     <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/checkbox.css">
     <link rel="stylesheet" href="bower_components/angularPrint/angularPrint.css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
@@ -112,18 +111,18 @@
                         <div class="icon-container">
                             <i class="fa fa-user"></i>
                             <p class="visible-xs details-xs">
-                                Account Details :
+                                Your Account Details :
                             </p>
                         </div>
                     </div>
                     <div class="col-sm-8 col-xs-12">
                         <h2 class="hidden-xs">
-                    Account Details :
+                    Your Account Details :
                     </h2>
                         <form class="account-form">
                             <div class="form-group row">
                                 <label for="retirementAgeInput" class="col-md-3 col-form-label">Retirement Age</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="retirementAgeSlider">
                                     </div>
                                 </div>
@@ -133,7 +132,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="pensionStartInput" class="col-md-3 col-form-label">Pension Start Age</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="pensionStartSlider">
                                     </div>
                                 </div>
@@ -143,7 +142,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="annualSalaryInput" class="col-md-3 col-form-label">Annual Salary</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="annualSalarySlider">
                                     </div>
                                 </div>
@@ -153,7 +152,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="superBalanceInput" class="col-md-3 col-form-label">Super Balance</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="superBalanceSlider">
                                     </div>
                                 </div>
@@ -163,7 +162,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="salarySacrificeInput" class="col-md-3 col-form-label">Salary Sacrifice</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="salarySacrificeSlider">
                                     </div>
                                 </div>
@@ -174,7 +173,7 @@
                             <div class="form-group row">
                                 <label for="targetInput" class="col-md-3 col-form-label">
                                     Target Income</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="targetSlider">
                                     </div>
                                 </div>
@@ -183,74 +182,39 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="allocatedPensionInput" class="col-md-8 col-form-label">
+                                <label for="select-spouse-option" class="col-md-8 col-form-label">
                                     Do You Have A Spouse</label>
                                 <div class="col-md-4">
-                                    <select class="selectpicker" id="select-spouse" title="Choose An Option">
+                                    <select class="selectpicker" id="select-spouse-option" title="Choose An Option">
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="retirementAgeSpouseInput" class="col-md-3 col-form-label">
-                                    Retirement Age</label>
-                                <div class="col-md-5 hidden-xs">
-                                    <div class="slider-div" id="retirementAgeSpouseSlider">
-                                    </div>
-                                </div>
+                                <label for="select-house-option" class="col-md-8 col-form-label">
+                                    Do You Own A House</label>
                                 <div class="col-md-4">
-                                    <input type="text" onClick="this.select();" class="form-control" id="retirementAgeSpouseInput" name="retirementAgeSpouseInput" ng-model="retirementAgeSpouse">
+                                    <select class="selectpicker" id="select-house-option" title="Choose An Option">
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="annualSalarySpouseInput" class="col-md-3 col-form-label">
-                                    Annual Salary</label>
-                                <div class="col-md-5 hidden-xs">
-                                    <div class="slider-div" id="annualSalarySpouseSlider">
-                                    </div>
-                                </div>
+                                <label for="select-pension-drawdown" class="col-md-8 col-form-label">
+                                    Pension Drawdown Value</label>
                                 <div class="col-md-4">
-                                    <input type="text" onClick="this.select();" class="form-control" id="annualSalarySpouseInput" name="annualSalarySpouseInput" ng-model="annualSalarySpouse">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="superBalanceSpouseInput" class="col-md-3 col-form-label">
-                                    Super Balance</label>
-                                <div class="col-md-5 hidden-xs">
-                                    <div class="slider-div" id="superBalanceSpouseSlider">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" onClick="this.select();" class="form-control" id="superBalanceSpouseInput" name="superBalanceSpouseInput" ng-model="superBalanceSpouse">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="salarySacrificeSpouseInput" class="col-md-3 col-form-label">
-                                    Salary Sacrifice</label>
-                                <div class="col-md-5 hidden-xs">
-                                    <div class="slider-div" id="salarySacrificeSpouseSlider">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" onClick="this.select();" class="form-control" id="salarySacrificeSpouseInput" name="salarySacrificeSpouseInput" ng-model="salarySacrificeSpouse">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="pensionStartSpouseInput" class="col-md-3 col-form-label">
-                                    Pension Start</label>
-                                <div class="col-md-5 hidden-xs">
-                                    <div class="slider-div" id="pensionStartSpouseSlider">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" onClick="this.select();" class="form-control" id="pensionStartSpouseInput" name="pensionStartSpouseInput" ng-model="pensionStartSpouse">
+                                    <select class="selectpicker" id="select-pension-drawdown" title="Choose An Option">
+                                        <option>Minimum Pension Only</option>
+                                        <option>Select Your Own Value</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="insurancePremiumInput" class="col-md-3 col-form-label">
                                     Insurance Premium per year</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="insurancePremiumSlider">
                                     </div>
                                 </div>
@@ -261,7 +225,7 @@
                             <div class="form-group row">
                                 <label for="investmentReturnInput" class="col-md-3 col-form-label">
                                     Investment Return</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="investmentReturnSlider">
                                     </div>
                                 </div>
@@ -272,7 +236,7 @@
                             <div class="form-group row">
                                 <label for="variableFeeInput" class="col-md-3 col-form-label">
                                     Variable Fee</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="variableFeeSlider">
                                     </div>
                                 </div>
@@ -283,7 +247,7 @@
                             <div class="form-group row">
                                 <label for="fixedFeeInput" class="col-md-3 col-form-label">
                                     Fixed Fee</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="fixedFeeSlider">
                                     </div>
                                 </div>
@@ -294,7 +258,7 @@
                             <div class="form-group row">
                                 <label for="employerContributionLevelInput" class="col-md-3 col-form-label">
                                     Employer Contribution Level</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="employerContributionLevelSlider">
                                     </div>
                                 </div>
@@ -305,7 +269,7 @@
                             <div class="form-group row">
                                 <label for="inflationInput" class="col-md-3 col-form-label">
                                     Inflation</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="inflationSlider">
                                     </div>
                                 </div>
@@ -316,7 +280,7 @@
                             <div class="form-group row">
                                 <label for="wageIncreaseInput" class="col-md-3 col-form-label">
                                     Wage Increase</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="wageIncreaseSlider">
                                     </div>
                                 </div>
@@ -327,7 +291,7 @@
                             <div class="form-group row">
                                 <label for="pensionDrawdownBaseInput" class="col-md-3 col-form-label">
                                     Pension Drawdown Base</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="pensionDrawdownBaseSlider">
                                     </div>
                                 </div>
@@ -335,10 +299,84 @@
                                     <input type="text" onClick="this.select();" class="form-control" id="pensionDrawdownBaseInput" name="pensionDrawdownBaseInput" ng-model="pensionDrawdownBase">
                                 </div>
                             </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="row boxes spouse-account-details">
+                    <div class="col-sm-2 col-xs-12">
+                        <div class="icon-container">
+                            <i class="fa fa-user"></i>
+                            <p class="visible-xs details-xs">
+                                Spouse's Account Details :
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-xs-12">
+                        <h2 class="hidden-xs">
+                    Spouse's Account Details : 
+                    </h2>
+                        <form class="tell-us-form">
+                            <div class="form-group row">
+                                <label for="retirementAgeSpouseInput" class="col-md-3 col-form-label">
+                                    Retirement Age</label>
+                                <div class="col-md-5 hidden-xs hidden-sm">
+                                    <div class="slider-div" id="retirementAgeSpouseSlider">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" onClick="this.select();" class="form-control" id="retirementAgeSpouseInput" name="retirementAgeSpouseInput" ng-model="retirementAgeSpouse">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="annualSalarySpouseInput" class="col-md-3 col-form-label">
+                                    Annual Salary</label>
+                                <div class="col-md-5 hidden-xs hidden-sm">
+                                    <div class="slider-div" id="annualSalarySpouseSlider">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" onClick="this.select();" class="form-control" id="annualSalarySpouseInput" name="annualSalarySpouseInput" ng-model="annualSalarySpouse">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="superBalanceSpouseInput" class="col-md-3 col-form-label">
+                                    Super Balance</label>
+                                <div class="col-md-5 hidden-xs hidden-sm">
+                                    <div class="slider-div" id="superBalanceSpouseSlider">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" onClick="this.select();" class="form-control" id="superBalanceSpouseInput" name="superBalanceSpouseInput" ng-model="superBalanceSpouse">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="salarySacrificeSpouseInput" class="col-md-3 col-form-label">
+                                    Salary Sacrifice</label>
+                                <div class="col-md-5 hidden-xs hidden-sm">
+                                    <div class="slider-div" id="salarySacrificeSpouseSlider">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" onClick="this.select();" class="form-control" id="salarySacrificeSpouseInput" name="salarySacrificeSpouseInput" ng-model="salarySacrificeSpouse">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="pensionStartSpouseInput" class="col-md-3 col-form-label">
+                                    Pension Start</label>
+                                <div class="col-md-5 hidden-xs hidden-sm">
+                                    <div class="slider-div" id="pensionStartSpouseSlider">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" onClick="this.select();" class="form-control" id="pensionStartSpouseInput" name="pensionStartSpouseInput" ng-model="pensionStartSpouse">
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="insurancePremiumSpouseInput" class="col-md-3 col-form-label">
                                     Insurance Premium per year</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="insurancePremiumSpouseSlider">
                                     </div>
                                 </div>
@@ -349,7 +387,7 @@
                             <div class="form-group row">
                                 <label for="investmentReturnSpouseInput" class="col-md-3 col-form-label">
                                     Investment Return</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="investmentReturnSpouseSlider">
                                     </div>
                                 </div>
@@ -360,7 +398,7 @@
                             <div class="form-group row">
                                 <label for="variableFeeSpouseInput" class="col-md-3 col-form-label">
                                     Variable Fee</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="variableFeeSpouseSlider">
                                     </div>
                                 </div>
@@ -371,7 +409,7 @@
                             <div class="form-group row">
                                 <label for="fixedFeeSpouseInput" class="col-md-3 col-form-label">
                                     Fixed Fee</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="fixedFeeSpouseSlider">
                                     </div>
                                 </div>
@@ -382,7 +420,7 @@
                             <div class="form-group row">
                                 <label for="employerContributionLevelSpouseInput" class="col-md-3 col-form-label">
                                     Employer Contribution Level</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="employerContributionLevelSpouseSlider">
                                     </div>
                                 </div>
@@ -393,7 +431,7 @@
                             <div class="form-group row">
                                 <label for="inflationSpouseInput" class="col-md-3 col-form-label">
                                     Inflation</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="inflationSpouseSlider">
                                     </div>
                                 </div>
@@ -404,7 +442,7 @@
                             <div class="form-group row">
                                 <label for="wageIncreaseSpouseInput" class="col-md-3 col-form-label">
                                     Wage Increase</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="wageIncreaseSpouseSlider">
                                     </div>
                                 </div>
@@ -413,9 +451,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="select-pension-drawdown-spouse" class="col-md-8 col-form-label">
+                                    Pension Drawdown Value</label>
+                                <div class="col-md-4">
+                                    <select class="selectpicker" id="select-pension-drawdown-spouse" title="Choose An Option">
+                                        <option>Minimum Pension Only</option>
+                                        <option>Select Your Own Value</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="pensionDrawdownBaseSpouseInput" class="col-md-3 col-form-label">
                                     Pension Drawdown Base</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="pensionDrawdownBaseSpouseSlider">
                                     </div>
                                 </div>
@@ -423,10 +471,29 @@
                                     <input type="text" onClick="this.select();" class="form-control" id="pensionDrawdownBaseSpouseInput" name="pensionDrawdownBaseSpouseInput" ng-model="pensionDrawdownBaseSpouse">
                                 </div>
                             </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+                <div class="row boxes other-assets">
+                    <div class="col-sm-2 col-xs-12">
+                        <div class="icon-container">
+                            <i class="fa fa-user"></i>
+                            <p class="visible-xs details-xs">
+                                Other Assets :
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-xs-12">
+                        <h2 class="hidden-xs">
+                    Other Assets : 
+                    </h2>
+                        <form class="tell-us-form">
                             <div class="form-group row">
                                 <label for="homeContentsInput" class="col-md-3 col-form-label">
                                     Home Contents</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="homeContentsSlider">
                                     </div>
                                 </div>
@@ -437,7 +504,7 @@
                             <div class="form-group row">
                                 <label for="vehicleCostInput" class="col-md-3 col-form-label">
                                     Vehicle Cost</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="vehicleCostSlider">
                                     </div>
                                 </div>
@@ -448,7 +515,7 @@
                             <div class="form-group row">
                                 <label for="investmentPropertyInput" class="col-md-3 col-form-label">
                                     Investment Property</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="investmentPropertySlider">
                                     </div>
                                 </div>
@@ -458,7 +525,7 @@
                             <div class="form-group row">
                                 <label for="bankAssetsInput" class="col-md-3 col-form-label">
                                     Bank Assets</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="bankAssetsSlider">
                                     </div>
                                 </div>
@@ -469,7 +536,7 @@
                             <div class="form-group row">
                                 <label for="listedInvestmentInput" class="col-md-3 col-form-label">
                                     Listed Investment</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="listedInvestmentSlider">
                                     </div>
                                 </div>
@@ -480,7 +547,7 @@
                             <div class="form-group row">
                                 <label for="marginLoansInput" class="col-md-3 col-form-label">
                                     Margin Loans</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="marginLoansSlider">
                                     </div>
                                 </div>
@@ -491,7 +558,7 @@
                             <div class="form-group row">
                                 <label for="otherInvestmentInput" class="col-md-3 col-form-label">
                                     Other Investment</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="otherInvestmentSlider">
                                     </div>
                                 </div>
@@ -502,7 +569,7 @@
                             <div class="form-group row">
                                 <label for="netRentalIncomeInput" class="col-md-3 col-form-label">
                                     Net Rental Income</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="netRentalIncomeSlider">
                                     </div>
                                 </div>
@@ -513,7 +580,7 @@
                             <div class="form-group row">
                                 <label for="otherIncomeInput" class="col-md-3 col-form-label">
                                     Other Income</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="otherIncomeSlider">
                                     </div>
                                 </div>
@@ -524,7 +591,7 @@
                             <div class="form-group row">
                                 <label for="pensionIncomeInput" class="col-md-3 col-form-label">
                                     Pension Income</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="pensionIncomeSlider">
                                     </div>
                                 </div>
@@ -535,7 +602,7 @@
                             <div class="form-group row">
                                 <label for="allocatedPensionInput" class="col-md-3 col-form-label">
                                     Allocated Pension</label>
-                                <div class="col-md-5 hidden-xs">
+                                <div class="col-md-5 hidden-xs hidden-sm">
                                     <div class="slider-div" id="allocatedPensionSlider">
                                     </div>
                                 </div>
@@ -543,7 +610,6 @@
                                     <input type="text" onClick="this.select();" class="form-control" id="allocatedPensionInput" name="allocatedPensionInput" ng-model="allocatedPension">
                                 </div>
                             </div>
-                            
                         </form>
                     </div>
                     <div class="col-sm-2">

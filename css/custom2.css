@@ -34,8 +34,10 @@ font-weight: bold;
     text-align: center;
 }
 .icon-container i{
-    background-color: #90b081;
-        color: #a8d06f;
+    /*background-color: #90b081;*/
+    background-color: #3FB8AF;
+        /*color: #a8d06f;*/
+        color:#fbefcc;
     width: 70px;
     font-size: 60px;
     border-radius: 50%;
@@ -45,9 +47,17 @@ font-weight: bold;
 background-color: #fbefcc;
 }
 .page-content .account-details{
+	background-color: #f2f5f6;
+}
+.page-content .spouse-account-details{
+	background-color: #fbefcc;
+}
+.page-content .other-assets{
 	background-color: #f2f5f6
 }
-.page-content .account-details form input{
+
+
+.page-content .account-details form input, .page-content .other-assets form input, .page-content .spouse-account-details form input{
 	text-align: right;
     font-weight: bold;
     color: #003946;
