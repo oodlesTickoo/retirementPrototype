@@ -9,13 +9,13 @@ body{
 		margin-top : 0px;
 	margin-bottom:20px;
 }
-.boxes form label{
+.boxes label{
 	/*font-size:16px;*/
 	font-weight: 500;
 	position: relative;
 	top:7px;
 }
-.page-content .boxes form label{
+.page-content .boxes label{
  font-size:18px;
 }
 .page-content .boxes .slider-div{
@@ -55,13 +55,56 @@ background-color: #fbefcc;
 .page-content .other-assets{
 	background-color: #f2f5f6
 }
+.page-content .ttrForm .submit-button{
+	width:initial;
+	margin:0 auto;
+	margin-top:10px;
+	font-size:16px;
+}
 
 
-.page-content .account-details form input, .page-content .other-assets form input, .page-content .spouse-account-details form input{
+.page-content .account-details input, .page-content .other-assets input, .page-content .spouse-account-details input{
 	text-align: right;
     font-weight: bold;
     color: #003946;
 }
+
+.tell-us .bootstrap-select{
+	width:100% !important;
+}
+.boxes .white-border{
+	margin:5px 0px 15px;
+	border-bottom:1px solid #3FB8AF;
+}
+.account-details h4,.spouse-account-details h4{
+	font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.ttrForm input.form-control,.ttrForm .bootstrap-select .btn, .ttrForm .input-group-addon{
+	border-radius:0px;
+}
+
+.ttrForm input.form-control:focus{
+	border-color:#000;
+	box-shadow:none;
+}
+
+.ttrForm .noUi-target{
+	border-radius:0px;	
+}
+
+.ttrForm .bootstrap-select .btn-default:hover,.ttrForm .bootstrap-select .btn-default:focus{
+	background-color: #fff;
+	box-shadow: none;
+}
+
+.ttrForm .open>.dropdown-toggle.btn-default{
+	background-color: #fff;
+	box-shadow: none;
+} 
 
 
 
@@ -89,7 +132,7 @@ background-color: #fbefcc;
 		width:60px;
 		height:56px;
 	}
-	.page-content .boxes form label {
+	.page-content .boxes label {
     font-size: 16px;
 }
 }
