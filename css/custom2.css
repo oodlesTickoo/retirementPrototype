@@ -1,37 +1,80 @@
 body{
     font-family:'Josefin Sans';
 }
+.boxes{
+	padding: 30px 20px;	
+	margin-top:10px;
+}
+.boxes h2{
+		margin-top : 0px;
+	margin-bottom:20px;
+}
+.boxes form label{
+	/*font-size:16px;*/
+	font-weight: 500;
+	position: relative;
+	top:7px;
+}
+.page-content .boxes form label{
+ font-size:18px;
+}
+.page-content .boxes .slider-div{
+	position:relative;
+	top:7px;
+}
+.page-content .boxes .bootstrap-select .btn{
+	    font-weight: bold;
+    color: #003946;
+}
+.page-content .boxes .bootstrap-select ul.dropdown-menu span.text{
+font-weight: bold;
+    color: #003946;
+}
 .icon-container{
     text-align: center;
-    /*width:50%;*/
-    /*margin : 0 auto;*/
 }
 .icon-container i{
-    background-color: #90b081;
-        color: #a8d06f;
+    /*background-color: #90b081;*/
+    background-color: #3FB8AF;
+        /*color: #a8d06f;*/
+        color:#fbefcc;
     width: 70px;
     font-size: 60px;
     border-radius: 50%;
     height: 70px;
 }
 .page-content .tell-us{
-background-color: #e6f0f2;
-    padding: 25px;	
+background-color: #fbefcc;
 }
-.page-content .tell-us h2{
-	margin-top : 0px;
-	margin-bottom:20px;
+.page-content .account-details{
+	background-color: #f2f5f6;
 }
-.page-content .tell-us form label{
- font-size:18px;
+.page-content .spouse-account-details{
+	background-color: #fbefcc;
 }
+.page-content .other-assets{
+	background-color: #f2f5f6
+}
+
+
+.page-content .account-details form input, .page-content .other-assets form input, .page-content .spouse-account-details form input{
+	text-align: right;
+    font-weight: bold;
+    color: #003946;
+}
+
+
+
+
+
+
 
 @media (max-width: 767px) {
 	.icon-container{
 	margin-bottom:10px;
 	text-align: left;
 	}
-	.icon-container p.tell-us-xs{
+	.icon-container p.details-xs{
 		text-align: left;
 		display:inline-block !important;
 		    font-size: 18px;
@@ -46,5 +89,34 @@ background-color: #e6f0f2;
 		width:60px;
 		height:56px;
 	}
+	.page-content .boxes form label {
+    font-size: 16px;
 }
+}
+
+.noUi-horizontal .noUi-handle {
+	width:30px;
+	height:30px;
+	background-color: #fbefcc;
+}
+.noUi-handle {
+	border-radius:15px;
+	border:3px solid #3FB8AF;
+}
+.noUi-handle:before, .noUi-handle:after{
+	content:none;
+}
+.noUi-target.noUi-connect, .noUi-background{
+	box-shadow: none;
+	    background: #fff;
+}
+
+.uib-datepicker:focus,.dropdown-menu:focus,table.uib-daypicker:focus{
+	outline:none;
+}
+
+ul.dropdown-menu{
+	padding:0px;
+}
+
 
