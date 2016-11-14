@@ -50,10 +50,10 @@ background-color: #fbefcc;
 	background-color: #f2f5f6;
 }
 .page-content .spouse-account-details{
-	background-color: #fbefcc;
+	background-color:#fbefcc;
 }
 .page-content .other-assets{
-	background-color: #f2f5f6
+	background-color:#fbefcc;
 }
 .page-content .ttrForm .submit-button{
 	width:initial;
@@ -63,13 +63,13 @@ background-color: #fbefcc;
 }
 
 
-.page-content .account-details input, .page-content .other-assets input, .page-content .spouse-account-details input{
+.page-content .tell-us input,.page-content .account-details input, .page-content .other-assets input, .page-content .spouse-account-details input{
 	text-align: right;
     font-weight: bold;
     color: #003946;
 }
 
-.tell-us .bootstrap-select{
+.tell-us .bootstrap-select,.account-details .bootstrap-select,.spouse-account-details .bootstrap-select{
 	width:100% !important;
 }
 .boxes .white-border{
@@ -162,4 +162,21 @@ ul.dropdown-menu{
 	padding:0px;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+div.err-div{
+	background-color: #a4383d;
+	padding:5px;
+}
+p.err-msg{
+	font-size:16px;
+	margin:0px;
+	color:#fff;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0px 9999px #fff !important;
+}
 

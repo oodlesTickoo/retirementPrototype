@@ -232,6 +232,12 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         $scope.spouseOption = $(this).selectpicker('val') <= 0;
         console.log("spouse option set to", $scope.spouseOption);
         $timeout(0);
+        var assetsDiv = document.getElementById("other-assets-div");
+        if(!$scope.spouseOption){
+            assetsDiv.style.backgroundColor = "#fbefcc";
+        }else{
+            assetsDiv.style.backgroundColor = "#f2f5f6";
+        }
     });
 
     $('#select-gender-option').on('changed.bs.select', function(e) {
@@ -2188,7 +2194,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
         console.log("calculating");
 
-        if (isValid) {
+        if(isValid) {
 
             // console.log('chaling');
             var targetIncome = Number($scope.target.replaceAll('$', '').replaceAll(',', ''));
@@ -2394,7 +2400,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             console.log("calculated");
         } else {
             $("#myModal").modal('show');
-            $("html, body").animate({ scrollTop: 0 }, "slow");
+            $("html, body").animate({ scrollTop: $("#tell-us").position().top + 80 }, "slow");
         }
 
 
