@@ -322,3 +322,29 @@
     font-size: 20px;
     line-height: 25px;
 }
+
+.account-details .slider-div{
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 1px solid #b3c4c8;
+}
+
+.account-details .form-group>div:nth-child(3){
+    padding-left: 30px;
+    padding-right: 90px;
+
+}
+.account-details .form-group>div:nth-child(2){
+    padding:0 50px;
+
+}
+
+.noUi-horizontal .noUi-handle {
+    top: -9px !important;
+}
+
+.noUi-horizontal {
+    height: 13px !important;
+}

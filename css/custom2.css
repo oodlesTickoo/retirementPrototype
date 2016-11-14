@@ -1,5 +1,5 @@
 body{
-    font-family:'Josefin Sans';
+    font-family: 'Catamaran', serif;
 }
 .boxes{
 	padding: 30px 20px;	
@@ -13,7 +13,7 @@ body{
 	/*font-size:16px;*/
 	font-weight: 500;
 	position: relative;
-	top:7px;
+	/*top:7px;*/
 }
 .page-content .boxes label{
  font-size:18px;
@@ -67,6 +67,7 @@ background-color: #fbefcc;
 	text-align: right;
     font-weight: bold;
     color: #003946;
+    font-size:18px;
 }
 
 .tell-us .bootstrap-select,.account-details .bootstrap-select,.spouse-account-details .bootstrap-select{
@@ -77,7 +78,7 @@ background-color: #fbefcc;
 	border-bottom:1px solid #3FB8AF;
 }
 .account-details h4,.spouse-account-details h4{
-	font-size: 16px;
+	/*font-size: 16px;*/
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: underline;
@@ -93,7 +94,7 @@ background-color: #fbefcc;
 }
 
 .ttrForm .noUi-target{
-	border-radius:0px;	
+	/*border-radius:0px;	*/
 }
 
 .ttrForm .bootstrap-select .btn-default:hover,.ttrForm .bootstrap-select .btn-default:focus{
