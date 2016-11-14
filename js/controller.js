@@ -12,6 +12,75 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.forms = {};
 
     $scope.personalDetails = {};
+    var d = document.getElementsByClassName('title-div');
+
+    $scope.chartOneOpen = true;
+    $scope.needSS = true;
+
+    $scope.isMenuDrop1 = false;
+    $scope.isMenuDrop2 = true;
+
+
+    $scope.menuDrop1 = function() {
+        $scope.isMenuDrop2   = $scope.isMenuDrop1 ? true : true;
+        $scope.isMenuDrop1 = $scope.isMenuDrop1 ? false : true;
+    }
+    $scope.menuDrop2 = function() {
+        $scope.isMenuDrop1 = $scope.isMenuDrop1 ? true : true;
+        $scope.isMenuDrop2 = $scope.isMenuDrop2 ? false : true;
+    }
+
+
+    $(".form-1").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
+
+        if ($scope.isMenuDrop1) {
+            d[0].style.backgroundColor = "#eaab00";
+            document.getElementsByClassName('caret1-down')[0].style.display='none';
+            document.getElementsByClassName('caret1-right')[0].style.display='block';
+        } else {
+            console.log("super");
+            d[0].style.backgroundColor = "#f9e6b3";
+            document.getElementsByClassName('caret1-down')[0].style.display='block';
+            document.getElementsByClassName('caret1-right')[0].style.display='none';
+        }
+    });
+
+    $(".form-2").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
+        if ($scope.isMenuDrop2) {
+            d[1].style.backgroundColor = "#eaab00";
+            document.getElementsByClassName('caret2-down')[0].style.display='none';
+            document.getElementsByClassName('caret2-right')[0].style.display='block';
+        } else {
+            console.log("super1");
+            d[1].style.backgroundColor = "#f9e6b3";
+            document.getElementsByClassName('caret2-down')[0].style.display='block';
+            document.getElementsByClassName('caret2-right')[0].style.display='none';
+        }
+    });
+
+
+
+    /* $('.title-div').mouseenter(function() {
+        console.log("yo");
+        if ($scope.isMenuDrop1) {
+            d.className += " title-div-nohover";
+        } else {
+            d.className += " title-div-hover";
+        }
+    });
+
+    $('.title-div').mouseleave(function() {
+        console.log("yop");
+
+        if ($scope.isMenuDrop1) {
+            d.className = d.className.replace(/(?:^|\s)title-div-nohover(?!\S)/g, '');
+        }
+        else{
+            d.className = d.className.replace(/(?:^|\s)title-div-hover(?!\S)/g, '');
+        }
+
+    });
+*/
 
     var maleExpectancy = [80.3, 79.6, 78.6, 77.6, 76.6, 75.6, 74.6, 73.6, 72.7, 71.7, 70.7, 69.7, 68.7, 67.7, 66.7, 65.7, 64.7, 63.7, 62.8, 61.8, 60.8, 59.9, 58.9, 57.9, 57, 56, 55, 54.1, 53.1, 52.2, 51.2, 50.2, 49.3, 48.3, 47.3, 46.4, 45.4, 44.5, 43.5, 42.6, 41.6, 40.7, 39.8, 38.8, 37.9, 37, 36, 35.1, 34.2, 33.3, 32.4, 31.4, 30.5, 29.6, 28.8, 27.9, 27, 26.1, 25.3, 24.4, 23.5, 22.7, 21.9, 21, 20.2, 19.4, 18.6, 17.8, 17, 16.3, 15.5, 14.8, 14, 13.3, 12.6, 11.9, 11.2, 10.6, 9.9, 9.3, 8.7, 8.2, 7.6, 7.1, 6.6, 6.1, 5.7, 5.3, 4.9, 4.5, 4.2, 3.9, 3.6, 3.4, 3.2, 3, 2.8, 2.6, 2.5, 2.4, 2.3];
 
@@ -20,37 +89,6 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     var dt = new Date();
 
     $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
-
-    // $timeout(function() {
-    //     $('.selectpickerSingle').selectpicker({
-    //         style: 'btn-info',
-    //         size: 2,
-    //     });
-
-    //     $('.selectpickerSpouse').selectpicker({
-    //         style: 'btn-info',
-    //         size: 2
-    //     });
-    //     $('.selectpickerSingle option[value="1"]').attr("selected", true);
-    //     $('.selectpickerSpouse option[value="1"]').attr("selected", true);
-    //     $('.selectpickerSingle').selectpicker('refresh');
-    //     $('.selectpickerSpouse').selectpicker('refresh');
-    // });
-
-
-
-    // $('.selectpickerSingle').on('change', function() {
-    //     var selected = $('.selectpickerSingle option:selected').val();
-    //     $scope.showPensionOption = selected == 1;
-    //     // calculateFinal();
-    //     $timeout(0);
-    // });
-
-    // $('.selectpickerSpouse').on('change', function() {
-    //     var selected = $('.selectpickerSpouse option:selected').val();
-    //     $scope.showPensionOptionSpouse = selected == 1;
-    //     $timeout(0);
-    // });
 
     var initDate = new Date();
     initDate.setYear(1959);
@@ -65,8 +103,6 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.dob = initDate;
     $scope.dobSpouse = initDate2;
 
-
-    $scope.chartOneOpen = true;
 
     $scope.infoShow = function(value) {
         if (value) {
@@ -192,9 +228,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.showPensionOption = true;
     $scope.showPensionOptionSpouse = true;
 
-    $('#select-spouse-option').on('changed.bs.select', function(e){
-        $scope.spouseOption = $(this).selectpicker('val') <= 0; 
-        console.log("spouse option set to",$scope.spouseOption);
+    $('#select-spouse-option').on('changed.bs.select', function(e) {
+        $scope.spouseOption = $(this).selectpicker('val') <= 0;
+        console.log("spouse option set to", $scope.spouseOption);
         $timeout(0);
         var assetsDiv = document.getElementById("other-assets-div");
         if(!$scope.spouseOption){
@@ -204,36 +240,36 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         }
     });
 
-    $('#select-gender-option').on('changed.bs.select', function(e){
-        $scope.genderOption = $(this).selectpicker('val') <= 0; 
-        console.log("gender option set to",$scope.genderOption);
+    $('#select-gender-option').on('changed.bs.select', function(e) {
+        $scope.genderOption = $(this).selectpicker('val') <= 0;
+        console.log("gender option set to", $scope.genderOption);
         $timeout(0);
         leMember1 = $scope.genderOption ? maleExpectancy[$scope.age] : femaleExpectancy[$scope.age];
     });
 
-    $('#select-gender-option-spouse').on('changed.bs.select', function(e){
-        $scope.genderOptionSpouse = $(this).selectpicker('val') > 0; 
-        console.log("spouse gender option set to",$scope.genderOptionSpouse);
+    $('#select-gender-option-spouse').on('changed.bs.select', function(e) {
+        $scope.genderOptionSpouse = $(this).selectpicker('val') > 0;
+        console.log("spouse gender option set to", $scope.genderOptionSpouse);
         $timeout(0);
         leMember2 = $scope.genderOptionSpouse ? maleExpectancy[$scope.ageSpouse] : femaleExpectancy[$scope.ageSpouse];
 
     });
 
-    $('#select-house-option').on('changed.bs.select', function(e){
-        $scope.houseOption = $(this).selectpicker('val') <= 0; 
-        console.log("house option set to",$scope.houseOption);
+    $('#select-house-option').on('changed.bs.select', function(e) {
+        $scope.houseOption = $(this).selectpicker('val') <= 0;
+        console.log("house option set to", $scope.houseOption);
         $timeout(0);
     });
 
-    $('#select-pension-drawdown').on('changed.bs.select', function(e){
-       $scope.showPensionOption = $(this).selectpicker('val') <= 0; 
-        console.log("choose pension option set to",$scope.showPensionOption);
+    $('#select-pension-drawdown').on('changed.bs.select', function(e) {
+        $scope.showPensionOption = $(this).selectpicker('val') <= 0;
+        console.log("choose pension option set to", $scope.showPensionOption);
         $timeout(0);
     });
 
-    $('#select-pension-drawdown-spouse').on('changed.bs.select', function(e){
-       $scope.showPensionOptionSpouse = $(this).selectpicker('val') <= 0; 
-        console.log("choose spouse pension option set to",$scope.showPensionOptionSpouse);
+    $('#select-pension-drawdown-spouse').on('changed.bs.select', function(e) {
+        $scope.showPensionOptionSpouse = $(this).selectpicker('val') <= 0;
+        console.log("choose spouse pension option set to", $scope.showPensionOptionSpouse);
         $timeout(0);
     });
 
@@ -1233,7 +1269,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         }
 
     }
-    
+
     $scope.ageChange = function() {
         var dobText = document.getElementById("dobText");
         var dateString = dobText.value;
