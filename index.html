@@ -294,7 +294,7 @@
                             <div class="form-group row">
                                 <label for="retirementAgeInput" class="col-md-3 col-form-label">Retirement Age</label>
                                 <div class="col-md-5 hidden-xs hidden-sm">
-                                    <div class="slider-div" id="retirementAgeSlider">
+                                    <div class="slider-div" id="retirementAgeSliders">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -336,7 +336,7 @@
                                 <label for="targetInput" class="col-md-3 col-form-label">
                                     Target Income</label>
                                 <div class="col-md-5 hidden-xs hidden-sm">
-                                    <div class="slider-div" id="targetSlider">
+                                    <div class="slider-div" id="targetSliders">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -740,9 +740,9 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-sm-8 col-xs-12 hidden-xs">
+                            <div class="col-sm-10 col-xs-12 hidden-xs">
                                 <h2>EXPLORE YOUR SAVINGS:</h2>
-                                <p>We've increased your registered retirement savings contributions to show you how you can reach your goal. Now try adjusting some of the other numbers below.</p>
+                                <p class="sub-para">We've increased your registered retirement savings contributions to show you how you can reach your goal. Now try adjusting some of the other numbers below.</p>
                             </div>
                             <div class="col-sm-2">
                             </div>
@@ -771,10 +771,11 @@
                                 <div class="value-container">
                                     <div class="col-xs-12">
                                         <div class="row title-div" ng-click="menuDrop1();">
-                                            <div class="col-xs-2 col-md-2 col-sm-2 col-lg-2 img-btn-div">
-                                                <button type="button" class="button img-btn"></button>
+                                            <div class="col-xs-2 col-md-1 col-sm-1 col-lg-1 img-btn-div">
+                                                <i class="fa fa-caret-down button caret1-down" style="display: none" aria-hidden="true"></i>
+                                                <i class="fa fa-caret-right button caret1-right" aria-hidden="true"></i>
                                             </div>
-                                            <div class="col-xs-10 col-md-10 col-sm-10 col-lg-10 title-wrapper">See what happens if you change your monthly contributions</div>
+                                            <div class="col-xs-11 col-md-11 col-sm-11 col-lg-11 title-wrapper">See what happens if you change your monthly contributions</div>
                                         </div>
                                         <div class="row form-1" ng-class="{menuDrop: isMenuDrop1}">
                                             <div class="col-xs-12">
@@ -815,10 +816,11 @@
                                             </div>
                                         </div>
                                         <div class="row title-div" ng-click="menuDrop2();">
-                                            <div class="col-xs-2 col-md-2 col-sm-2 col-lg-2 img-btn-div">
-                                                <button type="button" class="button img-btn"></button>
+                                            <div class="col-xs-2 col-md-1 col-sm-1 col-lg-1 img-btn-div">
+                                                <i class="fa fa-caret-down button caret2-down"  aria-hidden="true"></i>
+                                                <i class="fa fa-caret-right button caret2-right" style="display: none" aria-hidden="true"></i>
                                             </div>
-                                            <div class="col-xs-10 col-md-10 col-sm-10 col-lg-10 title-wrapper">What if you change your retirement age or expected annual retirement income?</div>
+                                            <div class="col-xs-11 col-md-11 col-sm-11 col-lg-11 title-wrapper">What if you change your retirement age or expected annual retirement income?</div>
                                         </div>
                                         <div class="row form-2" ng-class="{menuDrop: isMenuDrop2}">
                                             <div class="col-xs-12">
