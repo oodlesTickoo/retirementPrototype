@@ -22,12 +22,11 @@
     }
 }
 
-@media (max-width: 767px) and (min-width: 320px){
+@media (max-width: 767px) and (min-width: 320px) {
     .container {
         width: 100% !important;
     }
 }
-
 
 .title-bar {
     background: radial-gradient(#fbcd52, #eaab00);
@@ -224,14 +223,13 @@
 }
 
 .start-over {
-    font-size: 18px;
+    font-size: 24px;
     color: #4a7295;
+    font-weight: 700;
 }
 
-.menuDrop {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.9s ease-out;
+.start-over:hover {
+    color: #4a7295;
 }
 
 .form-1,
@@ -244,8 +242,14 @@
     -o-transition: max-height 0.9s ease-in;
     -moz-transition: max-height 0.9s ease-in;
     transition: max-height 0.9s ease-in;
-    max-height: 1600px;
+    max-height: 800px;
     overflow: hidden;
+}
+
+.menuDrop {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-out;
 }
 
 .value-container .row {
@@ -256,50 +260,65 @@
     margin-top: 15px;
 }
 
-.result-table{
-    width:100%;
+.result-table {
+    width: 100%;
+    padding-bottom: 10px;
 }
 
-.result-table>div:nth-child(1){
-    width:60%;
-    padding-right: 10%
-}
-.result-table>div:nth-child(2){
-    width:40%;
+.result-table>div:nth-child(1) {
+    width: 60%;
     padding-right: 10%
 }
 
-.value-container input{
+.result-table>div:nth-child(2) {
+    width: 40%;
+    padding-right: 10%
+}
+
+.value-container input {
     text-align: right;
     font-weight: bold;
     color: #003946;
 }
 
-.img-btn{
-  background:  url("../images/chevron-up.png") no-repeat;
-
-  width: 18px;
-  height: 11px;
-
+.img-btn {
+    /*background: url("../images/chevron-up.png") no-repeat;*/
+    width: 18px;
+    height: 11px;
 }
 
-.img-btn-div{
-  height: 22px;
-
-}
-.title-wrapper{
-    margin-left: -8%;
+.img-btn-div {
+    height: 22px;
 }
 
-.title-div{
+.title-wrapper {
+    /*margin-left: -8%;*/
+}
+
+.title-div {
+    transition: background-color 0.4s ease;
     color: #003946;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     white-space: normal;
     padding-top: 10px;
     margin-top: 20px;
 }
-.result-labels{
+
+.result-labels {
     font-size: 18px;
     padding-top: 15px;
+}
+
+.title-div:hover {
+    cursor: pointer;
+}
+
+.title-div-nohover {
+    background-color: #eaab00;
+    cursor: pointer;
+}
+.sub-para{
+    font-size: 20px;
+    line-height: 25px;
 }
