@@ -22,7 +22,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
 
     $scope.menuDrop1 = function() {
-        $scope.isMenuDrop2   = $scope.isMenuDrop1 ? true : true;
+        $scope.isMenuDrop2 = $scope.isMenuDrop1 ? true : true;
         $scope.isMenuDrop1 = $scope.isMenuDrop1 ? false : true;
     }
     $scope.menuDrop2 = function() {
@@ -35,26 +35,26 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
         if ($scope.isMenuDrop1) {
             d[0].style.backgroundColor = "#eaab00";
-            document.getElementsByClassName('caret1-down')[0].style.display='none';
-            document.getElementsByClassName('caret1-right')[0].style.display='block';
+            document.getElementsByClassName('caret1-down')[0].style.display = 'none';
+            document.getElementsByClassName('caret1-right')[0].style.display = 'block';
         } else {
             console.log("super");
             d[0].style.backgroundColor = "#f9e6b3";
-            document.getElementsByClassName('caret1-down')[0].style.display='block';
-            document.getElementsByClassName('caret1-right')[0].style.display='none';
+            document.getElementsByClassName('caret1-down')[0].style.display = 'block';
+            document.getElementsByClassName('caret1-right')[0].style.display = 'none';
         }
     });
 
     $(".form-2").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
         if ($scope.isMenuDrop2) {
             d[1].style.backgroundColor = "#eaab00";
-            document.getElementsByClassName('caret2-down')[0].style.display='none';
-            document.getElementsByClassName('caret2-right')[0].style.display='block';
+            document.getElementsByClassName('caret2-down')[0].style.display = 'none';
+            document.getElementsByClassName('caret2-right')[0].style.display = 'block';
         } else {
             console.log("super1");
             d[1].style.backgroundColor = "#f9e6b3";
-            document.getElementsByClassName('caret2-down')[0].style.display='block';
-            document.getElementsByClassName('caret2-right')[0].style.display='none';
+            document.getElementsByClassName('caret2-down')[0].style.display = 'block';
+            document.getElementsByClassName('caret2-right')[0].style.display = 'none';
         }
     });
 
@@ -233,9 +233,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         console.log("spouse option set to", $scope.spouseOption);
         $timeout(0);
         var assetsDiv = document.getElementById("other-assets-div");
-        if(!$scope.spouseOption){
+        if (!$scope.spouseOption) {
             assetsDiv.style.backgroundColor = "#fbefcc";
-        }else{
+        } else {
             assetsDiv.style.backgroundColor = "#f2f5f6";
         }
     });
@@ -2194,7 +2194,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
         console.log("calculating");
 
-        if(isValid) {
+        if (isValid) {
 
             // console.log('chaling');
             var targetIncome = Number($scope.target.replaceAll('$', '').replaceAll(',', ''));

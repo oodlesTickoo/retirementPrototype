@@ -318,7 +318,84 @@
     background-color: #eaab00;
     cursor: pointer;
 }
-.sub-para{
+
+.sub-para {
     font-size: 20px;
     line-height: 25px;
+}
+
+.slider-div {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 1px solid #b3c4c8;
+    width: 225px;
+}
+
+.account-details .form-group>div:nth-child(3),
+.spouse-account-details .form-group>div:nth-child(3),
+.other-assets .form-group>div:nth-child(3) {
+    padding-left: 30px;
+}
+
+.account-details .form-group>div:nth-child(2),
+.spouse-account-details .form-group>div:nth-child(2),
+.other-assets .form-group>div:nth-child(2) {
+    padding-left: 30px;
+}
+
+.noUi-horizontal .noUi-handle {
+    top: -9px !important;
+}
+
+.noUi-horizontal {
+    height: 13px !important;
+}
+
+.account-details>div:nth-child(2)>h2,
+.spouse-account-details>div:nth-child(2)>h2,
+.account-details>div:nth-child(1) p,
+.spouse-account-details>div:nth-child(1) p,
+.other-assets>div:nth-child(2)>h2,
+.other-assets>div:nth-child(1) p {
+    font-size: 20px;
+    line-height: 24px;
+    color: #424242;
+    text-transform: uppercase;
+    font-family: AgendaMedium;
+    font-weight: 700;
+}
+
+.intrnl-head {
+    font-weight: 700;
+    font-size: 18px;
+    color: #003946;
+    font-family: AgendaMedium;
+}
+
+@media(max-width:615px) {
+    .account-details .form-group>div:nth-child(3) {
+        padding-left: 30px;
+        padding-right: 148px;
+    }
+}
+
+
+/*@media(min-width:793px) {
+    .err-div {
+        margin-left: 0;
+    }
+}*/
+
+@media(max-width:792px) {
+    .err-div {
+        margin-left: 50% !important;
+    }
+}
+
+@media (max-width: 792px) and (min-width: 320px) {
+    .err-div {
+        margin-left: 50% !important;
+    }
 }
