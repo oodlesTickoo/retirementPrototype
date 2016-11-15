@@ -1,13 +1,21 @@
 @font-face {
-    font-family: 'FontAwesome';
+    font-family: 'AgendaLight';
     src: url("../fonts/AgendaLight.ttf");
     /*src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");*/
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'AgendaMedium';
+    src: url("../fonts/AgendaMedium.ttf");
+    /*src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");*/
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: FontAwesome;
+    font-family: AgendaLight;
 }
 
 .boxes {
@@ -39,6 +47,8 @@ body {
 .page-content .boxes .bootstrap-select .btn {
     font-weight: bold;
     color: #003946;
+    padding-left: 11px;
+    font-size: 18px;
 }
 
 .page-content .boxes .bootstrap-select ul.dropdown-menu span.text {
@@ -52,13 +62,18 @@ body {
 
 .icon-container i {
     /*background-color: #90b081;*/
-    background-color: #3FB8AF;
+    background-color: #eaab00;
     /*color: #a8d06f;*/
-    color: #fbefcc;
+    color: #f2f5f6;
     width: 70px;
-    font-size: 60px;
     border-radius: 50%;
     height: 70px;
+    font-size: 45px;
+    padding-top: 10px;
+}
+
+.account-details .icon-container i {
+    background-color: #003946;
 }
 
 .page-content .tell-us {
@@ -82,9 +97,30 @@ body {
     margin: 0 auto;
     margin-top: 10px;
     font-size: 16px;
+    display: block;
+    padding: 8px 0px;
+    width: 330px;
+    text-transform: uppercase;
+    font-size: 22px;
+    color: #424242;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: AgendaMedium;
+    background: #e5ab00;
+    background: -webkit-linear-gradient(270deg, #e5ab00 0%, #f6ce39 100%);
+    background: -webkit-linear-gradient(bottom, #e5ab00 0%, #f6ce39 100%);
+    background: linear-gradient(0deg, #e5ab00 0%, #f6ce39 100%);
 }
 
-.page-content .tell-us input,
+.page-content .ttrForm .submit-button:hover {
+    text-decoration: none;
+    background: #e5ab00;
+    background: -webkit-linear-gradient(0deg, #f6ce39 0%, #e5ab00 100%);
+    background: -webkit-linear-gradient(bottom, #f6ce39 0%, #e5ab00 100%);
+    background: linear-gradient(0deg, #f6ce39 0%, #e5ab00 100%);
+}
+
 .page-content .account-details input,
 .page-content .other-assets input,
 .page-content .spouse-account-details input {
@@ -92,21 +128,35 @@ body {
     font-weight: bold;
     color: #003946;
     font-size: 18px;
+    padding-right: 9px;
+    width: 130px;
 }
 
-.tell-us .bootstrap-select,
+.page-content .tell-us input {
+    text-align: right;
+    font-weight: bold;
+    color: #003946;
+    font-size: 18px;
+    padding-right: 11px;
+}
+
 .account-details .bootstrap-select,
 .spouse-account-details .bootstrap-select {
+    width: 130px !important;
+}
+
+.tell-us .bootstrap-select {
     width: 100% !important;
 }
 
 .boxes .white-border {
     margin: 5px 0px 15px;
-    border-bottom: 1px solid #3FB8AF;
+    border-bottom: 1px solid white;
 }
 
 .account-details h4,
-.spouse-account-details h4 {
+.spouse-account-details h4,
+.other-assets h4 {
     /*font-size: 16px;*/
     font-weight: bold;
     text-transform: uppercase;
@@ -148,26 +198,38 @@ body {
         text-align: left;
         display: inline-block !important;
         font-size: 18px;
-        text-decoration: underline;
         position: relative;
         top: -8px;
         left: 5px;
     }
     .icon-container i {
         text-align: center;
-        font-size: 50px;
-        width: 60px;
-        height: 56px;
+        font-size: 34px;
+        width: 55px;
+        height: 55px;
+        padding-top: 9px
     }
     .page-content .boxes label {
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 200;
     }
 }
 
-.noUi-horizontal .noUi-handle {
-    width: 30px;
-    height: 30px;
-    background-color: #fbefcc;
+.account-details .noUi-horizontal .noUi-handle {
+    width: 28px;
+    height: 28px;
+    background-color: #003946;
+    border: 3px solid #f2f5f6;
+    box-shadow: 0 0 0 1pt #003946;
+}
+
+.other-assets .noUi-horizontal .noUi-handle,
+.spouse-account-details .noUi-horizontal .noUi-handle {
+    width: 28px;
+    height: 28px;
+    background-color: #eaab00;
+    border: 3px solid #fbefcc;
+    box-shadow: 0 0 0 1pt #eaab00;
 }
 
 .noUi-handle {
@@ -202,13 +264,10 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-div.err-div {
-    background-color: #a4383d;
-    padding: 5px;
-}
-
 p.err-msg {
+    background-color: #a4383d;
     font-size: 16px;
+    padding: 5px 5px;
     margin: 0px;
     color: #fff;
 }
