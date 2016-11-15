@@ -232,6 +232,18 @@ body {
     box-shadow: 0 0 0 1pt #eaab00;
 }
 
+div .colorChange .noUi-horizontal .noUi-handle{
+	    width: 28px;
+    height: 28px;
+    background-color: #003946;
+    border: 3px solid #f2f5f6;
+    box-shadow: 0 0 0 1pt #003946;
+}
+
+div .colorChange .icon-container i {
+    background-color:  #003946;
+    }
+
 .noUi-handle {
     border-radius: 15px;
     border: 3px solid #3FB8AF;

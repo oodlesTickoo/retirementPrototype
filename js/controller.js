@@ -233,6 +233,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         console.log("spouse option set to", $scope.spouseOption);
         $timeout(0);
         var assetsDiv = document.getElementById("other-assets-div");
+        assetsDiv.classList.toggle("colorChange");
         if (!$scope.spouseOption) {
             assetsDiv.style.backgroundColor = "#fbefcc";
         } else {
