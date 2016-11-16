@@ -129,7 +129,7 @@ body {
     color: #003946;
     font-size: 18px;
     padding-right: 9px;
-    width: 130px;
+    width: 125px;
 }
 
 .page-content .tell-us input {
@@ -210,8 +210,37 @@ body {
         padding-top: 9px
     }
     .page-content .boxes label {
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 200;
+        line-height: 20px;
+    }
+    .page-content .account-details input,
+    .page-content .other-assets input,
+    .page-content .spouse-account-details input {
+        text-align: right;
+        font-weight: bold;
+        color: #003946;
+        font-size: 16px;
+        padding-right: 9px;
+        width: 125px;
+    }
+    .banner-text {
+        width: 100%;
+    }
+    .page-content .ttrForm .submit-button {
+        font-size: 17px;
+        width: auto;
+        padding: 7px 7px;
+    }
+    .tell-us>div:nth-child(2)>h2,
+    .tell-us>div:nth-child(1) p,
+    .account-details>div:nth-child(2)>h2,
+    .spouse-account-details>div:nth-child(2)>h2,
+    .account-details>div:nth-child(1) p,
+    .spouse-account-details>div:nth-child(1) p,
+    .other-assets>div:nth-child(2)>h2,
+    .other-assets>div:nth-child(1) p {
+        font-size: 16px;
     }
 }
 

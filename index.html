@@ -69,7 +69,7 @@
                                 <div class="col-xs-6 col-md-4">
                                     <input type="text" class="form-control" name="lastName" id="last-name" placeholder="Last Name" ng-model="personalDetails.lastName" ng-pattern="/^[a-zA-Z\s]*$/" required>
                                 </div>
-                                <div class="col-xs-offset-6 col-xs-6 col-md-4 err-div" ng-show="!forms.ttrForm.lastName.$pristine && forms.ttrForm.lastName.$invalid">
+                                <div class="col-xs-6 col-md-4 err-div" ng-show="!forms.ttrForm.lastName.$pristine && forms.ttrForm.lastName.$invalid">
                                     <p class="err-msg">Please provide a valid last name.</p>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                                 <div class="col-xs-6 col-md-4">
                                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" ng-model="personalDetails.email" required>
                                 </div>
-                                <div class="col-xs-offset-6 col-xs-6 col-md-4 err-div" ng-show="(!forms.ttrForm.email.$pristine && forms.ttrForm.email.$invalid)">
+                                <div class="col-xs-6 col-md-4 err-div" ng-show="(!forms.ttrForm.email.$pristine && forms.ttrForm.email.$invalid)">
                                     <p class="err-msg">Enter a valid email address</p>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                                 <div class="col-xs-6 col-md-4">
                                     <input type="number" class="form-control mob-input" id="mobile-num" placeholder="mobile" ng-model="personalDetails.mobile" name="mobile" ng-pattern="/^(04)\d{8}$/g" required>
                                 </div>
-                                <div class="col-xs-offset-6 col-xs-6 col-md-4 err-div" ng-show="(!forms.ttrForm.mobile.$pristine && forms.ttrForm.mobile.$invalid)">
+                                <div class="col-xs-6 col-md-4 err-div" ng-show="(!forms.ttrForm.mobile.$pristine && forms.ttrForm.mobile.$invalid)">
                                     <p class="err-msg">Enter a valid mobile number</p>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                                 <div class="col-xs-6 col-md-4">
                                     <input type="number" ng-minlength="4" ng-maxlength="4" class="form-control postal-code" id="postal-code" name="postalCode" ng-model="personalDetails.postalCode" placeholder="Postal Code">
                                 </div>
-                                <div class="col-xs-offset-6 col-xs-6 col-md-4 err-div" ng-show="!forms.ttrForm.postalCode.$pristine &&forms.ttrForm.postalCode.$invalid">
+                                <div class="col-xs-6 col-md-4 err-div" ng-show="!forms.ttrForm.postalCode.$pristine &&forms.ttrForm.postalCode.$invalid">
                                     <p class="err-msg">Enter a valid 4-Digit postal code</p>
                                 </div>
                             </div>
