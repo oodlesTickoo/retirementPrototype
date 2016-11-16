@@ -5,6 +5,12 @@ app.service('AreaChartService', function() {
         // console.log(le1,le2);
 
         //console.log(target);
+        Highcharts.setOptions({
+            lang: {
+                thousandsSep: ','
+            },
+            colors: ["#7CB5EC","#434348","#90ed7d","#FFBC75"]
+        });
 
         var plotLineId = 'Life Expectancy Member 1'; // To identify for removal
         var plotLineId1 = 'Life Expectancy Member 2'; // To identify for removal

@@ -1,10 +1,13 @@
 app.service('ChartServiceHc', function() {
     this.createChart = function(balanceArray) {
 
+
+
         Highcharts.setOptions({
             lang: {
                 thousandsSep: ','
-            }
+            },
+            colors: ["#003946","#434348","#90ed7d","#FFBC75"]
         });
 
         //console.log(balanceArray.length);
