@@ -325,10 +325,10 @@
 }
 
 .slider-div {
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -o-border-radius: 10px;
-    -webkit-border-radius: 10px;
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    -o-border-radius: 1px;
+    -webkit-border-radius: 1px;
     border: 1px solid #b3c4c8;
     width: 225px;
 }
@@ -353,6 +353,9 @@
     height: 13px !important;
 }
 
+
+.tell-us>div:nth-child(2)>h2,
+.tell-us>div:nth-child(1) p,
 .account-details>div:nth-child(2)>h2,
 .spouse-account-details>div:nth-child(2)>h2,
 .account-details>div:nth-child(1) p,
@@ -377,7 +380,7 @@
 @media(max-width:615px) {
     .account-details .form-group>div:nth-child(3) {
         padding-left: 30px;
-        padding-right: 148px;
+        /*padding-right: 148px;*/
     }
 }
 
@@ -394,7 +397,7 @@
     }
 }
 
-@media (max-width: 792px) and (min-width: 320px) {
+@media (max-width: 792px) and (min-width: 620px) {
     .err-div {
         margin-left: 50% !important;
     }
