@@ -118,9 +118,9 @@ body {
     text-transform: uppercase;
     color: #424242;
     /*font-weight: 700;*/
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-right: 10px;
+    /*margin-bottom: 20px;*/
+    /*margin-top: 20px;*/
+    /*margin-right:10px;*/
     font-family: AgendaMedium;
     background: #e5ab00;
     background: -webkit-linear-gradient(270deg, #e5ab00 0%, #f6ce39 100%);
@@ -268,7 +268,8 @@ body {
 }
 
 .other-assets .noUi-horizontal .noUi-handle,
-.spouse-account-details .noUi-horizontal .noUi-handle {
+.spouse-account-details .noUi-horizontal .noUi-handle ,
+.result-details .noUi-horizontal .noUi-handle  {
     width: 28px;
     height: 28px;
     background-color: #eaab00;

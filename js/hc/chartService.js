@@ -71,7 +71,10 @@ app.service('ChartServiceHc', function() {
                         fontWeight: "bold",
                         color: "#000"
                     }
-                }
+                },
+                labels: {
+                step: 5
+            }
             },
             yAxis: {
                 title: {
