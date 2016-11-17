@@ -92,7 +92,7 @@ body {
     background-color: #fbefcc;
 }
 
-.page-content .ttrForm .submit-button{
+.page-content .ttrForm .submit-button {
     width: initial;
     margin: 0 auto;
     margin-top: 10px;
@@ -113,7 +113,7 @@ body {
     background: linear-gradient(0deg, #e5ab00 0%, #f6ce39 100%);
 }
 
- .result-details .chart-button{
+.result-details .chart-button {
     padding: 8px 10px;
     text-transform: uppercase;
     color: #424242;
@@ -126,7 +126,7 @@ body {
     background: -webkit-linear-gradient(270deg, #e5ab00 0%, #f6ce39 100%);
     background: -webkit-linear-gradient(bottom, #e5ab00 0%, #f6ce39 100%);
     background: linear-gradient(0deg, #e5ab00 0%, #f6ce39 100%);
- }
+}
 
 .page-content .ttrForm .submit-button:hover {
     text-decoration: none;
@@ -277,8 +277,8 @@ body {
     box-shadow: 0 0 0 1pt #eaab00;
 }
 
-div .colorChange .noUi-horizontal .noUi-handle{
-	    width: 28px;
+div .colorChange .noUi-horizontal .noUi-handle {
+    width: 28px;
     height: 28px;
     background-color: #003946;
     border: 3px solid #f2f5f6;
@@ -286,8 +286,8 @@ div .colorChange .noUi-horizontal .noUi-handle{
 }
 
 div .colorChange .icon-container i {
-    background-color:  #003946;
-    }
+    background-color: #003946;
+}
 
 .noUi-handle {
     border-radius: 15px;
@@ -333,6 +333,171 @@ input:-webkit-autofill {
     -webkit-box-shadow: inset 0 0 0px 9999px #fff !important;
 }
 
+
 /*.chart-buttons-row .chart-xs-btn{
     background-color: #e5ab00 !important;
 }*/
+
+.feedback {
+    background-color: #003946;
+    border: 2px solid #ffffff;
+    display: block;
+    position: fixed;
+    top: 40%;
+    padding: 2px 0px 2px 0px;
+    font-size: 20px;
+    color: white;
+    z-index: 100;
+    width: 150px;
+    cursor: pointer;
+    right: -110px;
+    border-radius: 5px 0px 0px 5px;
+    -moz-border-radius: 5px 0px 0px 5px;
+    -webkit-border-radius: 5px 0px 0px 5px;
+    transition: right 1.0s;
+    -moz-transition: right 1.0s;
+    -webkit-transition: right 1.0s;
+    -o-transition: right 1.0s;
+    background-image: -webkit-linear-gradient(top, #055F73, #003946);
+    background-image: -moz-linear-gradient(top, #055F73, #003946);
+    background-image: -ms-linear-gradient(top, #055F73, #003946);
+    background-image: -o-linear-gradient(top, #055F73, #003946);
+    background-image: linear-gradient(top, #055F73, #003946);
+    box-shadow: rgba(0, 0, 0, 0.7) 0 0 3px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.7) 0 0 3px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 0 3px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.feedback:hover {
+    right: -5px;
+}
+
+.fa-comments:before {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.modal-header {
+    padding: 5px 8px !important;
+}
+
+.modal-body {
+    background-color: #f2f2f2;
+}
+
+#myModal1 .modal-header h4 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+    color: #003946;
+}
+
+#myModal1 .modal-footer button {
+    font-weight: bold;
+    font-size: 15px;
+    height: 35px;
+    margin-top: 6px;
+    padding: 0 15px;
+}
+
+#myModal1 .modal-footer img {
+    width: 30%;
+    float: left;
+}
+
+#myModal1 .modal-footer .submt-btn {
+    /*background-color: #003946;*/
+}
+
+#myModal1 .modal-body>label:nth-child(1) {
+    font-size: 13px;
+}
+
+#myModal1 .modal-body>label:nth-child(2),
+#myModal1 .modal-body>label:nth-child(4),
+#myModal1 .modal-body>label:nth-child(8) {
+    margin-top: 15px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+#myModal1 .modal-body>input {
+    display: block;
+    width: 100%;
+}
+
+.radio-div {
+    margin-top: 8px;
+}
+
+.radio-div label {
+    margin-right: 20px;
+}
+
+@media (max-width: 767px) {
+    #myModal1 .modal-footer button {
+        font-weight: bold;
+        height: 28px;
+        margin-top: 6px;
+        padding: 0 7px;
+    }
+    #myModal1 .modal-footer img {
+        width: 50%;
+    }
+    .modal-footer {
+        padding: 5px 5px;
+    }
+    .radio-div label {
+        margin-left: 0px !important;
+        display: block;
+    }
+}
+
+@media (max-width: 425px) and (min-width:375px){
+    #myModal1 .modal-footer button {
+        font-weight: bold;
+        height: 28px;
+        margin-top: 14px;
+        padding: 0 7px;
+    }
+    #myModal1 .modal-footer img {
+        width: 50%;
+    }
+    .modal-footer {
+        padding: 5px 5px;
+    }
+    .radio-div label {
+        margin-left: 0px !important;
+        display: block;
+    }
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.bodywrapper {
+    overflow: auto;
+    height: 100%;
+}
+
+
+/* unset bs3 setting */
+
+.modal-open {
+    overflow: auto;
+}
+
+
+/* extra stetting for fixed navbar, see bs3 doc
+*/
+
+body {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
