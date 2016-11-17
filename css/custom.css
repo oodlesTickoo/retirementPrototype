@@ -324,7 +324,7 @@
     line-height: 25px;
 }
 
-.slider-div {
+.slider-div,.slider-div-new {
     border-radius: 1px;
     -moz-border-radius: 1px;
     -o-border-radius: 1px;
@@ -361,7 +361,9 @@
 .account-details>div:nth-child(1) p,
 .spouse-account-details>div:nth-child(1) p,
 .other-assets>div:nth-child(2)>h2,
-.other-assets>div:nth-child(1) p,.result-details h2.heading{
+.other-assets>div:nth-child(1) p,
+.result-details h2.heading{
+/*.result-details>div:nth-child(1) p{*/
     font-size: 20px;
     line-height: 24px;
     color: #424242;
