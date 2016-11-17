@@ -205,8 +205,11 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.spouseOption = false;
     $scope.houseOption = false;
     $scope.retirementAgeSpouse = 70;
+    $scope.retirementAgeSpouseNew = 70;
     $scope.annualSalarySpouse = 90000;
+    $scope.annualSalarySpouseNew = 90000;
     $scope.superBalanceSpouse = 200000;
+    $scope.superBalanceSpouseNew = 200000;
     $scope.salarySacrificeSpouse = 5000;
     $scope.pensionStartSpouse = 65;
     $scope.insurancePremiumSpouse = 0;
@@ -220,6 +223,10 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $scope.age = AgeCalculator.getAge($scope.dob, $scope.fy);
     $scope.ageSpouse = AgeCalculator.getAge($scope.dobSpouse, $scope.fy);
+
+    $scope.newChangesApplied = false;
+
+    $scope.enableNewSliders = true;
 
     var leMember1 = $scope.genderOption ? maleExpectancy[$scope.age] : femaleExpectancy[$scope.age];
 
@@ -288,10 +295,13 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     // };
 
     $scope.retirementAge = 65;
+    $scope.retirementAgeNew = 65;
     $scope.preservationAge = 55;
     $scope.preservationAgeSpouse = 55;
 
     $scope.annualSalary = 260000;
+    $scope.annualSalaryNew = 260000;
+
 
     $scope.employerContributionLevel = 9.50;
     $scope.employerContributionLevelSpouse = 9.50;
@@ -300,6 +310,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.inflationSpouse = 3.50;
 
     $scope.superBalance = 500000;
+    $scope.superBalanceNew = 500000;
 
     $scope.wageIncrease = 4.00;
     $scope.wageIncreaseSpouse = 4.00;
@@ -329,13 +340,17 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.pensionIncome = 0;
 
     $scope.target = 40000;
+    $scope.targetNew = 40000;
 
 
     var retirementAgeSlider = document.getElementById('retirementAgeSlider'),
+        retirementAgeSliderNew = document.getElementById('retirementAgeSliderNew'),
         annualSalarySlider = document.getElementById('annualSalarySlider'),
+        annualSalarySliderNew = document.getElementById('annualSalarySliderNew'),
         employerContributionLevelSlider = document.getElementById('employerContributionLevelSlider'),
         employerContributionLevelSpouseSlider = document.getElementById('employerContributionLevelSpouseSlider'),
         superBalanceSlider = document.getElementById('superBalanceSlider'),
+        superBalanceSliderNew = document.getElementById('superBalanceSliderNew'),
         inflationSlider = document.getElementById('inflationSlider'),
         inflationSpouseSlider = document.getElementById('inflationSpouseSlider'),
         wageIncreaseSlider = document.getElementById('wageIncreaseSlider'),
@@ -347,7 +362,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         variableFeeSlider = document.getElementById('variableFeeSlider'),
         fixedFeeSlider = document.getElementById('fixedFeeSlider'),
         annualSalarySpouseSlider = document.getElementById('annualSalarySpouseSlider'),
+        annualSalarySpouseSliderNew = document.getElementById('annualSalarySpouseSliderNew'),
         superBalanceSpouseSlider = document.getElementById('superBalanceSpouseSlider'),
+        superBalanceSpouseSliderNew = document.getElementById('superBalanceSpouseSliderNew'),
         salarySacrificeSpouseSlider = document.getElementById('salarySacrificeSpouseSlider'),
         pensionStartSpouseSlider = document.getElementById('pensionStartSpouseSlider'),
         insurancePremiumSpouseSlider = document.getElementById('insurancePremiumSpouseSlider'),
@@ -355,6 +372,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         variableFeeSpouseSlider = document.getElementById('variableFeeSpouseSlider'),
         fixedFeeSpouseSlider = document.getElementById('fixedFeeSpouseSlider'),
         retirementAgeSpouseSlider = document.getElementById('retirementAgeSpouseSlider'),
+        retirementAgeSpouseSliderNew = document.getElementById('retirementAgeSpouseSliderNew'),
         pensionDrawdownBaseSlider = document.getElementById('pensionDrawdownBaseSlider'),
         pensionDrawdownBaseSpouseSlider = document.getElementById('pensionDrawdownBaseSpouseSlider'),
         homeContentsSlider = document.getElementById('homeContentsSlider'),
@@ -368,7 +386,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         netRentalIncomeSlider = document.getElementById('netRentalIncomeSlider'),
         otherIncomeSlider = document.getElementById('otherIncomeSlider'),
         pensionIncomeSlider = document.getElementById('pensionIncomeSlider'),
-        targetSlider = document.getElementById('targetSlider');
+        targetSlider = document.getElementById('targetSlider'),
+        targetSliderNew = document.getElementById('targetSliderNew');
 
 
     noUiSlider.create(targetSlider, {
@@ -384,7 +403,23 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             thousand: ','
 
         }),
-        connect: 'lower'
+        connect: [false,false]
+    });
+
+    noUiSlider.create(targetSliderNew, {
+        start: [$scope.targetNew],
+        range: {
+            'min': [10000],
+            'max': [100000]
+        },
+        step: 500,
+        format: wNumb({
+            decimals: 0,
+            prefix: '$',
+            thousand: ','
+
+        }),
+        connect: [false,false]
     });
 
 
@@ -398,7 +433,20 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         format: wNumb({
             decimals: 0,
         }),
-        connect: 'lower'
+        connect: [false,false]
+    });
+
+    noUiSlider.create(retirementAgeSliderNew, {
+        start: [$scope.retirementAgeNew],
+        range: {
+            'min': [60],
+            'max': [75]
+        },
+        step: 1,
+        format: wNumb({
+            decimals: 0,
+        }),
+        connect: [false,false]
     });
 
     noUiSlider.create(annualSalarySlider, {
@@ -414,7 +462,23 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             thousand: ','
 
         }),
-        connect: 'lower'
+        connect: [false,false]
+    });
+
+        noUiSlider.create(annualSalarySliderNew, {
+        start: [$scope.annualSalaryNew],
+        range: {
+            'min': [0],
+            'max': [600000]
+        },
+        step: 500,
+        format: wNumb({
+            decimals: 0,
+            prefix: '$',
+            thousand: ','
+
+        }),
+        connect: [false,false]
     });
 
     noUiSlider.create(employerContributionLevelSlider, {
@@ -429,7 +493,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             postfix: '%',
             // thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(employerContributionLevelSpouseSlider, {
@@ -444,7 +508,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             postfix: '%',
             // thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(inflationSlider, {
@@ -458,7 +522,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             decimals: 2,
             postfix: '%',
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(inflationSpouseSlider, {
@@ -472,7 +536,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             decimals: 2,
             postfix: '%',
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(superBalanceSlider, {
@@ -487,7 +551,22 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
+    });
+
+        noUiSlider.create(superBalanceSliderNew, {
+        start: [$scope.superBalanceNew],
+        range: {
+            'min': [0],
+            'max': [3000000]
+        },
+        step: 500,
+        format: wNumb({
+            decimals: 0,
+            prefix: '$',
+            thousand: ','
+        }),
+        connect: [false,false]
     });
 
 
@@ -502,7 +581,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             decimals: 2,
             postfix: '%',
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(wageIncreaseSpouseSlider, {
@@ -516,7 +595,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             decimals: 2,
             postfix: '%',
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
 
@@ -532,7 +611,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(salarySacrificeSlider, {
@@ -547,7 +626,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(pensionStartSlider, {
@@ -560,7 +639,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         format: wNumb({
             decimals: 0,
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(investmentReturnSlider, {
@@ -574,7 +653,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             decimals: 2,
             postfix: '%',
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(variableFeeSlider, {
@@ -588,7 +667,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             decimals: 2,
             postfix: '%',
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(fixedFeeSlider, {
@@ -603,7 +682,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(annualSalarySpouseSlider, {
@@ -619,7 +698,23 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             thousand: ','
 
         }),
-        connect: 'lower'
+        connect: [false,false]
+    });
+
+        noUiSlider.create(annualSalarySpouseSliderNew, {
+        start: [$scope.annualSalarySpouseNew],
+        range: {
+            'min': [0],
+            'max': [600000]
+        },
+        step: 500,
+        format: wNumb({
+            decimals: 0,
+            prefix: '$',
+            thousand: ','
+
+        }),
+        connect: [false,false]
     });
 
     noUiSlider.create(superBalanceSpouseSlider, {
@@ -634,7 +729,22 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
+    });
+
+        noUiSlider.create(superBalanceSpouseSliderNew, {
+        start: [$scope.superBalanceSpouseNew],
+        range: {
+            'min': [0],
+            'max': [3000000]
+        },
+        step: 500,
+        format: wNumb({
+            decimals: 0,
+            prefix: '$',
+            thousand: ','
+        }),
+        connect: [false,false]
     });
 
     noUiSlider.create(insurancePremiumSpouseSlider, {
@@ -649,7 +759,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(salarySacrificeSpouseSlider, {
@@ -664,7 +774,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(pensionStartSpouseSlider, {
@@ -677,7 +787,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         format: wNumb({
             decimals: 0,
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
     noUiSlider.create(investmentReturnSpouseSlider, {
         start: [$scope.investmentReturnSpouse],
@@ -690,7 +800,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             decimals: 2,
             postfix: '%',
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
 
@@ -705,7 +815,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             decimals: 2,
             postfix: '%',
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(fixedFeeSpouseSlider, {
@@ -720,7 +830,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(retirementAgeSpouseSlider, {
@@ -735,8 +845,24 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             // prefix: '$',
             // thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
+
+        noUiSlider.create(retirementAgeSpouseSliderNew, {
+        start: [$scope.retirementAgeSpouseNew],
+        range: {
+            'min': [60],
+            'max': [75]
+        },
+        step: 1,
+        format: wNumb({
+            decimals: 0,
+            // prefix: '$',
+            // thousand: ','
+        }),
+        connect: [false,false]
+    });
+
     noUiSlider.create(pensionDrawdownBaseSlider, {
         start: [$scope.pensionDrawdownBase],
         range: {
@@ -749,7 +875,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(pensionDrawdownBaseSpouseSlider, {
@@ -764,7 +890,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(homeContentsSlider, {
@@ -780,7 +906,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             thousand: ','
 
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(vehicleCostSlider, {
@@ -795,7 +921,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(listedInvestmentSlider, {
@@ -810,7 +936,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(investmentPropertySlider, {
@@ -825,7 +951,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(bankAssetsSlider, {
@@ -840,7 +966,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(marginLoansSlider, {
@@ -855,7 +981,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
 
@@ -871,7 +997,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     // noUiSlider.create(superFundsSlider, {
@@ -886,7 +1012,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     //         prefix: '$',
     //         thousand: ','
     //     }),
-    //     connect: 'lower'
+    //     connect: [false,false]
     // });
 
     noUiSlider.create(otherInvestmentSlider, {
@@ -901,7 +1027,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     // noUiSlider.create(employmentIncomeSlider, {
@@ -916,7 +1042,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     //         prefix: '$',
     //         thousand: ','
     //     }),
-    //     connect: 'lower'
+    //     connect: [false,false]
     // });
 
     // noUiSlider.create(employmentIncomePartnerSlider, {
@@ -931,7 +1057,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     //         prefix: '$',
     //         thousand: ','
     //     }),
-    //     connect: 'lower'
+    //     connect: [false,false]
     // });
 
     noUiSlider.create(netRentalIncomeSlider, {
@@ -946,7 +1072,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
     noUiSlider.create(otherIncomeSlider, {
@@ -961,7 +1087,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
     noUiSlider.create(pensionIncomeSlider, {
         start: [$scope.pensionIncome],
@@ -975,7 +1101,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             prefix: '$',
             thousand: ','
         }),
-        connect: 'lower'
+        connect: [false,false]
     });
 
 
@@ -983,10 +1109,13 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     var ageInput = document.getElementById('ageInput'),
         retirementAgeInput = document.getElementById('retirementAgeInput'),
+        retirementAgeInputNew = document.getElementById('retirementAgeInputNew'),
         annualSalaryInput = document.getElementById('annualSalaryInput'),
+        annualSalaryInputNew = document.getElementById('annualSalaryInputNew'),
         employerContributionLevelInput = document.getElementById('employerContributionLevelInput'),
         employerContributionLevelSpouseInput = document.getElementById('employerContributionLevelSpouseInput'),
         superBalanceInput = document.getElementById('superBalanceInput'),
+        superBalanceInputNew = document.getElementById('superBalanceInputNew'),
         // rateOfReturnInput = document.getElementById('rateOfReturnInput'),
         inflationInput = document.getElementById('inflationInput'),
         inflationSpouseInput = document.getElementById('inflationSpouseInput'),
@@ -1000,7 +1129,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         variableFeeInput = document.getElementById('variableFeeInput'),
         fixedFeeInput = document.getElementById('fixedFeeInput'),
         annualSalarySpouseInput = document.getElementById('annualSalarySpouseInput'),
+        annualSalarySpouseInputNew = document.getElementById('annualSalarySpouseInputNew'),
         superBalanceSpouseInput = document.getElementById('superBalanceSpouseInput'),
+        superBalanceSpouseInputNew = document.getElementById('superBalanceSpouseInputNew'),
         salarySacrificeSpouseInput = document.getElementById('salarySacrificeSpouseInput'),
         pensionStartSpouseInput = document.getElementById('pensionStartSpouseInput'),
         insurancePremiumSpouseInput = document.getElementById('insurancePremiumSpouseInput'),
@@ -1008,6 +1139,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         variableFeeSpouseInput = document.getElementById('variableFeeSpouseInput'),
         fixedFeeSpouseInput = document.getElementById('fixedFeeSpouseInput'),
         retirementAgeSpouseInput = document.getElementById('retirementAgeSpouseInput'),
+        retirementAgeSpouseInputNew = document.getElementById('retirementAgeSpouseInputNew'),
         pensionDrawdownBaseInput = document.getElementById('pensionDrawdownBaseInput'),
         pensionDrawdownBaseSpouseInput = document.getElementById('pensionDrawdownBaseSpouseInput'),
         homeContentsInput = document.getElementById('homeContentsInput'),
@@ -1024,11 +1156,17 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         netRentalIncomeInput = document.getElementById('netRentalIncomeInput'),
         otherIncomeInput = document.getElementById('otherIncomeInput'),
         pensionIncomeInput = document.getElementById('pensionIncomeInput')
-    targetInput = document.getElementById('targetInput');
+    targetInput = document.getElementById('targetInput'),
+    targetInputNew = document.getElementById('targetInputNew');
 
     targetSlider.noUiSlider.on('update', function(values, handle) {
         targetInput.value = values[handle];
         $scope.target = (values[handle]);
+    });
+
+    targetSliderNew.noUiSlider.on('update', function(values, handle) {
+        targetInputNew.value = values[handle];
+        $scope.targetNew = (values[handle]);
     });
 
     retirementAgeSlider.noUiSlider.on('update', function(values, handle) {
@@ -1036,9 +1174,23 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         $scope.retirementAge = (values[handle]);
     });
 
+        retirementAgeSliderNew.noUiSlider.on('update', function(values, handle) {
+        retirementAgeInputNew.value = values[handle];
+        $scope.retirementAgeNew = (values[handle]);
+    });
+
     annualSalarySlider.noUiSlider.on('update', function(values, handle) {
+        console.log("sli up");
         annualSalaryInput.value = values[handle];
         $scope.annualSalary = (values[handle]);
+        $timeout(0);
+    });
+
+        annualSalarySliderNew.noUiSlider.on('update', function(values, handle) {
+            console.log("newsli up");
+        annualSalaryInputNew.value = values[handle];
+        $scope.annualSalaryNew = (values[handle]);
+        $timeout(0);
     });
 
     employerContributionLevelSlider.noUiSlider.on('update', function(values, handle) {
@@ -1054,6 +1206,11 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     superBalanceSlider.noUiSlider.on('update', function(values, handle) {
         superBalanceInput.value = values[handle];
         $scope.superBalance = (values[handle]);
+    });
+
+    superBalanceSliderNew.noUiSlider.on('update', function(values, handle) {
+        superBalanceInputNew.value = values[handle];
+        $scope.superBalanceNew = (values[handle]);
     });
 
     // rateOfReturnSlider.noUiSlider.on('update', function(values, handle) {
@@ -1121,9 +1278,19 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         $scope.annualSalarySpouse = (values[handle]);
     });
 
+        annualSalarySpouseSliderNew.noUiSlider.on('update', function(values, handle) {
+        annualSalarySpouseInputNew.value = values[handle];
+        $scope.annualSalarySpouseNew = (values[handle]);
+    });
+
     superBalanceSpouseSlider.noUiSlider.on('update', function(values, handle) {
         superBalanceSpouseInput.value = values[handle];
         $scope.superBalanceSpouse = (values[handle]);
+    });
+
+    superBalanceSpouseSliderNew.noUiSlider.on('update', function(values, handle) {
+        superBalanceSpouseInputNew.value = values[handle];
+        $scope.superBalanceSpouseNew = (values[handle]);
     });
 
     salarySacrificeSpouseSlider.noUiSlider.on('update', function(values, handle) {
@@ -1159,6 +1326,11 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     retirementAgeSpouseSlider.noUiSlider.on('update', function(values, handle) {
         retirementAgeSpouseInput.value = values[handle];
         $scope.retirementAgeSpouse = (values[handle]);
+    });
+
+    retirementAgeSpouseSliderNew.noUiSlider.on('update', function(values, handle) {
+        retirementAgeSpouseInputNew.value = values[handle];
+        $scope.retirementAgeSpouseNew = (values[handle]);
     });
 
     pensionDrawdownBaseSlider.noUiSlider.on('update', function(values, handle) {
@@ -1293,8 +1465,20 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                     'max': 75
                 }
             });
+            retirementAgeSliderNew.noUiSlider.updateOptions({
+                range: {
+                    'min': ($scope.age + 1),
+                    'max': 75
+                }
+            });
         } else {
             retirementAgeSlider.noUiSlider.updateOptions({
+                range: {
+                    'min': 60,
+                    'max': 75
+                }
+            });
+            retirementAgeSliderNew.noUiSlider.updateOptions({
                 range: {
                     'min': 60,
                     'max': 75
@@ -1341,8 +1525,20 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                     'max': 75
                 }
             });
+            retirementAgeSpouseSliderNew.noUiSlider.updateOptions({
+                range: {
+                    'min': ($scope.ageSpouse + 1),
+                    'max': 75
+                }
+            });
         } else {
             retirementAgeSpouseSlider.noUiSlider.updateOptions({
+                range: {
+                    'min': 60,
+                    'max': 75
+                }
+            });
+            retirementAgeSpouseSliderNew.noUiSlider.updateOptions({
                 range: {
                     'min': 60,
                     'max': 75
@@ -1375,8 +1571,19 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         retirementAgeSlider.noUiSlider.set($scope.retirementAge);
     });
 
+    retirementAgeInputNew.addEventListener("change", function() {
+        retirementAgeSliderNew.noUiSlider.set($scope.retirementAgeNew);
+    });
+
     annualSalaryInput.addEventListener("change", function() {
+        console.log("sli ch");
         annualSalarySlider.noUiSlider.set($scope.annualSalary);
+    });
+
+        annualSalaryInputNew.addEventListener("change", function() {
+                        console.log("newsli change");
+
+        annualSalarySliderNew.noUiSlider.set($scope.annualSalaryNew);
     });
 
     employerContributionLevelInput.addEventListener("change", function() {
@@ -1389,6 +1596,10 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     superBalanceInput.addEventListener("change", function() {
         superBalanceSlider.noUiSlider.set($scope.superBalance);
+    });
+
+    superBalanceInputNew.addEventListener("change", function() {
+        superBalanceSliderNew.noUiSlider.set($scope.superBalanceNew);
     });
 
 
@@ -1437,8 +1648,16 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         annualSalarySpouseSlider.noUiSlider.set($scope.annualSalarySpouse);
     });
 
+        annualSalarySpouseInputNew.addEventListener("change", function() {
+        annualSalarySpouseSliderNew.noUiSlider.set($scope.annualSalarySpouseNew);
+    });
+
     superBalanceSpouseInput.addEventListener("change", function() {
         superBalanceSpouseSlider.noUiSlider.set($scope.superBalanceSpouse);
+    });
+
+        superBalanceSpouseInputNew.addEventListener("change", function() {
+        superBalanceSpouseSliderNew.noUiSlider.set($scope.superBalanceSpouseNew);
     });
 
     salarySacrificeSpouseInput.addEventListener("change", function() {
@@ -1467,6 +1686,10 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     retirementAgeSpouseInput.addEventListener("change", function() {
         retirementAgeSpouseSlider.noUiSlider.set($scope.retirementAgeSpouse);
+    });
+
+    retirementAgeSpouseInputNew.addEventListener("change", function() {
+        retirementAgeSpouseSliderNew.noUiSlider.set($scope.retirementAgeSpouseNew);
     });
 
     pensionDrawdownBaseInput.addEventListener("change", function() {
@@ -1525,10 +1748,16 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         targetSlider.noUiSlider.set($scope.target);
     });
 
+    targetInputNew.addEventListener("change", function() {
+        targetSliderNew.noUiSlider.set($scope.targetNew);
+    });
+
 
     retirementAgeSlider.noUiSlider.on('set', function(values, handle) {
+        $scope.enableNewSliders = false;
         retirementAgeInput.value = values[handle];
         $scope.retirementAge = (values[handle]);
+        retirementAgeSliderNew.noUiSlider.set($scope.retirementAge);
         preservationChange(true);
         if (Number($scope.preservationAge) == Number($scope.retirementAge)) {
             $scope.pensionStart = Number($scope.preservationAge);
@@ -1542,18 +1771,58 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                 }
             });
         }
-
+        $scope.enableNewSliders = true;
 
         // calculateFinal();
         $timeout(0);
     });
 
-    annualSalarySlider.noUiSlider.on('set', function(values, handle) {
+        retirementAgeSliderNew.noUiSlider.on('set', function(values, handle) {
+            $scope.newChangesApplied = true;
+        retirementAgeInputNew.value = values[handle];
+        $scope.retirementAgeNew = (values[handle]);
+        preservationChange(true);
+        if (Number($scope.preservationAge) == Number($scope.retirementAgeNew)) {
+            $scope.pensionStart = Number($scope.preservationAge);
+            pensionStartSlider.setAttribute('disabled', true);
+        } else {
+            pensionStartSlider.removeAttribute('disabled');
+            pensionStartSlider.noUiSlider.updateOptions({
+                range: {
+                    'min': (Number($scope.preservationAge)),
+                    'max': (Number($scope.retirementAgeNew))
+                }
+            });
+        }
+        if($scope.enableNewSliders){
+        $scope.calculateFinal(true);
+        }
+        $scope.newChangesApplied = false;
+        $timeout(0);
+    });
+
+    annualSalarySlider.noUiSlider.on('set', function(values, handle){
+        console.log("sli set");
+                $scope.enableNewSliders = false;
         annualSalaryInput.value = values[handle];
         $scope.annualSalary = (values[handle]);
+        annualSalarySliderNew.noUiSlider.set($scope.annualSalary);
         changeCCLimit();
         // calculateFinal();
+         $scope.enableNewSliders = true;
         $timeout(0);
+    });
+
+        annualSalarySliderNew.noUiSlider.on('set', function(values, handle){
+        $scope.newChangesApplied = true;
+        annualSalaryInputNew.value = values[handle];
+        $scope.annualSalaryNew = (values[handle]);
+        changeCCLimit();
+                if($scope.enableNewSliders){
+        $scope.calculateFinal(true);
+    }
+        $timeout(0);
+        $scope.newChangesApplied = false;
     });
 
     employerContributionLevelSlider.noUiSlider.on('set', function(values, handle) {
@@ -1573,12 +1842,25 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     superBalanceSlider.noUiSlider.on('set', function(values, handle) {
+        $scope.enableNewSliders = false;
         superBalanceInput.value = values[handle];
         $scope.superBalance = (values[handle]);
+        superBalanceSliderNew.noUiSlider.set($scope.superBalance);
         // calculateFinal();
+        $scope.enableNewSliders = true;
         $timeout(0);
     });
 
+    superBalanceSliderNew.noUiSlider.on('set', function(values, handle) {
+        $scope.newChangesApplied = true;
+        superBalanceInputNew.value = values[handle];
+        $scope.superBalanceNew = (values[handle]);
+        if($scope.enableNewSliders){
+        $scope.calculateFinal(true);
+        }
+        $timeout(0);
+        $scope.newChangesApplied = false;        
+    });
 
     inflationSlider.noUiSlider.on('set', function(values, handle) {
         inflationInput.value = values[handle];
@@ -1651,17 +1933,46 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     annualSalarySpouseSlider.noUiSlider.on('set', function(values, handle) {
+        $scope.enableNewSliders = false;
         annualSalarySpouseInput.value = values[handle];
         $scope.annualSalarySpouse = (values[handle]);
+        annualSalarySpouseSliderNew.noUiSlider.set($scope.annualSalarySpouse);
         changeCCLimitSpouse();
         // calculateFinal();
+        $scope.enableNewSliders = true;
+        $timeout(0);
+    });
+
+    annualSalarySpouseSliderNew.noUiSlider.on('set', function(values, handle) {
+        $scope.newChangesApplied = true;
+        annualSalarySpouseInputNew.value = values[handle];
+        $scope.annualSalarySpouse = (values[handle]);
+        changeCCLimitSpouse();
+        if($scope.enableNewSliders){
+        $scope.calculateFinal(true);
+        }   
+        $scope.newChangesApplied = false;
         $timeout(0);
     });
 
     superBalanceSpouseSlider.noUiSlider.on('set', function(values, handle) {
+        $scope.enableNewSliders = false;
         superBalanceSpouseInput.value = values[handle];
         $scope.superBalanceSpouse = (values[handle]);
+        superBalanceSpouseSliderNew.noUiSlider.set($scope.superBalanceSpouse);
         // calculateFinal();
+        $scope.enableNewSliders = true;
+        $timeout(0);
+    });
+
+        superBalanceSpouseSliderNew.noUiSlider.on('set', function(values, handle) {
+        $scope.newChangesApplied = true;
+        superBalanceSpouseInputNew.value = values[handle];
+        $scope.superBalanceSpouseNew = (values[handle]);
+        if($scope.enableNewSliders){
+        $scope.calculateFinal(true);
+        }
+        $scope.newChangesApplied = false;
         $timeout(0);
     });
 
@@ -1708,8 +2019,10 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     retirementAgeSpouseSlider.noUiSlider.on('set', function(values, handle) {
+        $scope.enableNewSliders = false;
         retirementAgeSpouseInput.value = values[handle];
         $scope.retirementAgeSpouse = (values[handle]);
+        retirementAgeSpouseSliderNew.noUiSlider.set($scope.retirementAgeSpouse);
         preservationChange(false);
         if (Number($scope.preservationAgeSpouse) == Number($scope.retirementAgeSpouse)) {
             $scope.pensionStartSpouse = Number($scope.preservationAgeSpouse);
@@ -1723,8 +2036,33 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                 }
             });
         }
+        $scope.enableNewSliders = true;
 
         // calculateFinal();
+        $timeout(0);
+    });
+
+    retirementAgeSpouseSliderNew.noUiSlider.on('set', function(values, handle) {
+        $scope.newChangesApplied = true;
+        retirementAgeSpouseInputNew.value = values[handle];
+        $scope.retirementAgeSpouseNew = (values[handle]);
+        preservationChange(false);
+        if (Number($scope.preservationAgeSpouse) == Number($scope.retirementAgeSpouseNew)) {
+            $scope.pensionStartSpouse = Number($scope.preservationAgeSpouse);
+            pensionStartSpouseSlider.setAttribute('disabled', true);
+        } else {
+            pensionStartSpouseSlider.removeAttribute('disabled');
+            pensionStartSpouseSlider.noUiSlider.updateOptions({
+                range: {
+                    'min': (Number($scope.preservationAgeSpouse)),
+                    'max': (Number($scope.retirementAgeSpouseNew))
+                }
+            });
+        }
+        if($scope.enableNewSliders){
+        $scope.calculateFinal(true);
+    }
+        $scope.newChangesApplied = true;
         $timeout(0);
     });
 
@@ -1820,9 +2158,23 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     targetSlider.noUiSlider.on('set', function(values, handle) {
+        $scope.enableNewSliders = false;
         targetInput.value = values[handle];
         $scope.target = (values[handle]);
+        targetSliderNew.noUiSlider.set($scope.target);
         // calculateFinal();
+        $scope.enableNewSliders = true;
+        $timeout(0);
+    });
+
+    targetSliderNew.noUiSlider.on('set', function(values, handle) {
+        $scope.newChangesApplied = true;
+        targetInputNew.value = values[handle];
+        $scope.target = (values[handle]);
+        if($scope.enableNewSliders){
+        $scope.calculateFinal(true);
+    }
+        $scope.newChangesApplied = false;
         $timeout(0);
     });
 
@@ -1873,7 +2225,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     }
 
     function changeCCLimit() {
-        var salary = Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
+        var salary = $scope.newChangesApplied ? Number($scope.annualSalaryNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
         var empContributionPerc = Number($scope.employerContributionLevel.replaceAll('%', ''));
         var empContribution = salary * (empContributionPerc / 100) > 19615.60 ? 19615.60 : salary * (empContributionPerc / 100);
         var ccLimit = $scope.age >= 49 ? 35000 - empContribution : 30000 - empContribution;
@@ -1890,7 +2242,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     }
 
     function changeCCLimitSpouse() {
-        var salary = Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', ''));
+        var salary = $scope.newChangesApplied ? Number($scope.annualSalarySpouseNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', ''));
         var empContributionPerc = Number($scope.employerContributionLevelSpouse.replaceAll('%', ''));
         var empContribution = salary * (empContributionPerc / 100) > 19615.60 ? 19615.60 : salary * (empContributionPerc / 100);
         var ccLimit = $scope.ageSpouse >= 49 ? 35000 - empContribution : 30000 - empContribution;
@@ -1927,9 +2279,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     function biCount(spouse) {
 
         if (!spouse) {
-            var annualSalary = Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
+            var annualSalary = $scope.newChangesApplied ? Number($scope.annualSalaryNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
 
-            var superBalance = Number($scope.superBalance.replaceAll('$', '').replaceAll(',', ''));
+            var superBalance = $scope.newChangesApplied ? Number($scope.superBalanceNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.superBalance.replaceAll('$', '').replaceAll(',', ''));
 
             var wageIncrease = Number($scope.wageIncrease.replaceAll('%', ''));
 
@@ -1950,7 +2302,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
             var insurancePremium = Number($scope.insurancePremium.replaceAll('$', '').replaceAll(',', ''));
 
-            var retirementAge = Number($scope.retirementAge);
+            var retirementAge = $scope.newChangesApplied ? Number($scope.retirementAgeNew) : Number($scope.retirementAge);
 
             var pensionStart = Number($scope.pensionStart);
 
@@ -1962,9 +2314,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             var ageL = Number($scope.age);
 
         } else {
-            var annualSalary = Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', ''));
+            var annualSalary = $scope.newChangesApplied ? Number($scope.annualSalarySpouseNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', ''));
 
-            var superBalance = Number($scope.superBalanceSpouse.replaceAll('$', '').replaceAll(',', ''));
+            var superBalance = $scope.newChangesApplied ? Number($scope.superBalanceSpouseNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.superBalanceSpouse.replaceAll('$', '').replaceAll(',', ''));
 
             var wageIncrease = Number($scope.wageIncreaseSpouse.replaceAll('%', ''));
 
@@ -1984,7 +2336,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
             var insurancePremium = Number($scope.insurancePremiumSpouse.replaceAll('$', '').replaceAll(',', ''));
 
-            var retirementAge = Number($scope.retirementAgeSpouse);
+            var retirementAge = $scope.newChangesApplied ? Number($scope.retirementAgeSpouseNew) : Number($scope.retirementAgeSpouse);
 
 
             var pensionStart = Number($scope.pensionStartSpouse);
@@ -2115,19 +2467,19 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         var marginLoans = Number($scope.marginLoans.replaceAll('$', '').replaceAll(',', ''));
         var allocatedPension = Number($scope.allocatedPension.replaceAll('$', '').replaceAll(',', ''));
         var otherInvestment = Number($scope.otherInvestment.replaceAll('$', '').replaceAll(',', ''));
-        var employmentIncome = Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
-        var employmentIncomePartner = $scope.spouseOption ? Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', '')) : 0;
+        var employmentIncome = $scope.newChangesApplied ? Number($scope.annualSalaryNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
+        var employmentIncomePartner = $scope.spouseOption ? ($scope.newChangesApplied ? Number($scope.annualSalarySpouseNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', '')) ) : 0;
         var netRentalIncome = Number($scope.netRentalIncome.replaceAll('$', '').replaceAll(',', ''));
         var otherIncome = Number($scope.otherIncome.replaceAll('$', '').replaceAll(',', ''));
         var pensionIncome = Number($scope.pensionIncome.replaceAll('$', '').replaceAll(',', ''));
 
         // console.log("super" , superFunds);
 
-        if (ageMember1 >= Number($scope.retirementAge)) {
+        if (ageMember1 >= ( $scope.newChangesApplied ? Number($scope.retirementAgeNew) : Number($scope.retirementAge))) {
             employmentIncome = 0;
         }
 
-        if (ageMember2 >= Number($scope.retirementAgeSpouse)) {
+        if (ageMember2 >= ( $scope.newChangesApplied ? Number($scope.retirementAgeSpouseNew) : Number($scope.retirementAgeSpouse)) ) {
             employmentIncomePartner = 0;
         }
 
@@ -2193,12 +2545,14 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $scope.calculateFinal = function(isValid) {
 
+        console.log($scope.newChangesApplied);
+
         console.log("calculating");
 
         if (isValid) {
 
             // console.log('chaling');
-            var targetIncome = Number($scope.target.replaceAll('$', '').replaceAll(',', ''));
+            var targetIncome = $scope.newChangesApplied ? Number($scope.targetNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.target.replaceAll('$', '').replaceAll(',', ''));
             //console.log(targetIncome);
             var isCouple = $scope.spouseOption;
             var ctm;
@@ -2599,6 +2953,14 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             $("html, body").animate({ scrollTop: 0 }, "slow");
         }
     };
+
+    $scope.resetSliders = function(){
+        // document.getElementById("results").style.display = "none";
+        annualSalarySlider.noUiSlider.reset();
+        superBalanceSlider.noUiSlider.reset();
+        annualSalarySpouseSlider.noUiSlider.reset();
+        superBalanceSpouseSlider.noUiSlider.reset();
+    }
 
 
 }]);
