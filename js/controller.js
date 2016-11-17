@@ -1795,7 +1795,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             });
         }
         if($scope.enableNewSliders){
-        $scope.calculateFinal(true);
+        $scope.calculateFinal(true,false);
         }
         $scope.newChangesApplied = false;
         $timeout(0);
@@ -1819,7 +1819,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         $scope.annualSalaryNew = (values[handle]);
         changeCCLimit();
                 if($scope.enableNewSliders){
-        $scope.calculateFinal(true);
+        $scope.calculateFinal(true,false);
     }
         $timeout(0);
         $scope.newChangesApplied = false;
@@ -1856,7 +1856,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         superBalanceInputNew.value = values[handle];
         $scope.superBalanceNew = (values[handle]);
         if($scope.enableNewSliders){
-        $scope.calculateFinal(true);
+        $scope.calculateFinal(true,false);
         }
         $timeout(0);
         $scope.newChangesApplied = false;        
@@ -1949,7 +1949,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         $scope.annualSalarySpouse = (values[handle]);
         changeCCLimitSpouse();
         if($scope.enableNewSliders){
-        $scope.calculateFinal(true);
+        $scope.calculateFinal(true,false);
         }   
         $scope.newChangesApplied = false;
         $timeout(0);
@@ -1970,7 +1970,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         superBalanceSpouseInputNew.value = values[handle];
         $scope.superBalanceSpouseNew = (values[handle]);
         if($scope.enableNewSliders){
-        $scope.calculateFinal(true);
+        $scope.calculateFinal(true,false);
         }
         $scope.newChangesApplied = false;
         $timeout(0);
@@ -2060,7 +2060,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             });
         }
         if($scope.enableNewSliders){
-        $scope.calculateFinal(true);
+        $scope.calculateFinal(true,false);
     }
         $scope.newChangesApplied = true;
         $timeout(0);
@@ -2172,7 +2172,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         targetInputNew.value = values[handle];
         $scope.target = (values[handle]);
         if($scope.enableNewSliders){
-        $scope.calculateFinal(true);
+        $scope.calculateFinal(true,false);
     }
         $scope.newChangesApplied = false;
         $timeout(0);
@@ -2543,13 +2543,18 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     }
 
 
-    $scope.calculateFinal = function(isValid) {
+    $scope.calculateFinal = function(isValid,closeInputs) {
 
         console.log($scope.newChangesApplied);
 
         console.log("calculating");
 
         if (isValid) {
+
+            if(closeInputs){
+                document.getElementById("inputs").style.display = "none";
+                document.getElementById("results").style.display = "block";
+            }
 
             // console.log('chaling');
             var targetIncome = $scope.newChangesApplied ? Number($scope.targetNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.target.replaceAll('$', '').replaceAll(',', ''));
@@ -2761,7 +2766,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     }
 
-    $scope.calculateFinal(true);
+    $scope.calculateFinal(true,false);
 
     // document.getElementById("download").addEventListener("click", function() {
 
@@ -2955,11 +2960,13 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     };
 
     $scope.resetSliders = function(){
-        // document.getElementById("results").style.display = "none";
-        annualSalarySlider.noUiSlider.reset();
-        superBalanceSlider.noUiSlider.reset();
-        annualSalarySpouseSlider.noUiSlider.reset();
-        superBalanceSpouseSlider.noUiSlider.reset();
+        var sliders = document.getElementsByClassName("slider-div");
+        [].forEach.call(sliders,function(slider){
+            slider.noUiSlider.reset();})
+
+        document.getElementById("results").style.display = "none";
+        document.getElementById("inputs").style.display = "block";
+
     }
 
 

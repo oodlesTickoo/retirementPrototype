@@ -324,7 +324,7 @@
     line-height: 25px;
 }
 
-.slider-div {
+.slider-div,.slider-div-new {
     border-radius: 1px;
     -moz-border-radius: 1px;
     -o-border-radius: 1px;

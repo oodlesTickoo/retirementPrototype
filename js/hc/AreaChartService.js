@@ -204,7 +204,7 @@ app.service('AreaChartService', function() {
 
                 max: 10 + Math.max(Math.max(Math.ceil(le1), Math.ceil(le2))),
 
-                plotLines: plOptions
+                plotLines: plOptions,
             },
             yAxis: {
 
