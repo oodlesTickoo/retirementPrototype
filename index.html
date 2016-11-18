@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="bower_components/angularPrint/angularPrint.css">
     <link rel="stylesheet" href="css/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="css/aos.css">
     <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
 </head>
 
-<body>
+<body print-section>
     <div class="container" style="display: block;" ng-controller="TTRController">
         <div class="row page-heading">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -35,16 +36,17 @@
                         </div>
                         <div class="row banner-wrapper display-table">
                             <div class="banner-text display-table-cell vertical-align-middle text-center">
-                                <h2>What is your net worth?</h2>
-                                <p>Tell us about yourself to see how your net worth compares to other Canadians like you. Understanding the difference between <span class="bold">what you own</span> (your assets) and <span class="bold">what you owe</span> (your liabilities) is a great way to help you plan for the future.</p>
+                                <h2>Are Your Savings Adequate?</h2>
+                                <p>The Retirement Adequacy Calculator is a tool designed to help you determine whether you and your partner's retirement savings will provide you the retirement that you both want to enjoy.</p>
+                                <!-- <p>Tell us about yourself to see how your net worth compares to other Canadians like you. Understanding the difference between <span class="bold">what you own</span> (your assets) and <span class="bold">what you owe</span> (your liabilities) is a great way to help you plan for the future.</p> -->
                             </div>
                             <div class="header-banner display-table-cell vertical-align-middle "><img src="images/header-image.jpg" class="img-responsive" alt=""></div>
                         </div>
                     </div>
                 </div>
                 <form class="ttrForm" name="forms.ttrForm" ng-submit="calculateFinal(forms.ttrForm.$valid,true) " novalidate>
-                    <div class="row boxes tell-us" id="tell-us">
-                        <div class="col-sm-2 col-xs-12">
+                    <div class="row boxes tell-us" id="tell-us" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
                             <div class="icon-container">
                                 <i class="fa fa-user"></i>
                                 <p class="visible-xs details-xs">
@@ -52,7 +54,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-sm-10  col-xs-11">
+                        <div class="col-sm-10  col-xs-11" data-aos="fade-left" data-aos-duration="1000">
                             <h2 class="hidden-xs">
                                 Tell Us About Yourself : 
                             </h2>
@@ -165,8 +167,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row boxes account-details">
-                        <div class="col-sm-2 col-xs-12">
+                    <div class="row boxes account-details" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
                             <div class="icon-container">
                                 <i class="fa fa-pie-chart"></i>
                                 <p class="visible-xs details-xs">
@@ -174,7 +176,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-sm-10  col-xs-11">
+                        <div class="col-sm-10  col-xs-11" data-aos="fade-left" data-aos-duration="1000">
                             <h2 class="hidden-xs">
                                 Your Account Details :
                             </h2>
@@ -359,8 +361,8 @@
                         <div class="col-sm-2">
                         </div>
                     </div>
-                    <div class="row boxes spouse-account-details" ng-show="spouseOption">
-                        <div class="col-sm-2 col-xs-12">
+                    <div class="row boxes spouse-account-details" ng-show="spouseOption" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
                             <div class="icon-container">
                                 <i class="fa fa-user"></i>
                                 <p class="visible-xs details-xs">
@@ -368,7 +370,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-sm-10 col-xs-12">
+                        <div class="col-sm-10 col-xs-12" data-aos="fade-left" data-aos-duration="1000">
                             <h2 class="hidden-xs">Spouse's Account Details :</h2>
                             <div class="form-group row">
                                 <label for="annualSalarySpouseInput" class="col-xs-6 col-md-3 col-sm-3 col-form-label">
@@ -543,8 +545,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row boxes other-assets" id="other-assets-div">
-                        <div class="col-sm-2 col-xs-12">
+                    <div class="row boxes other-assets" id="other-assets-div" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
                             <div class="icon-container">
                                 <i class="fa fa-usd"></i>
                                 <p class="visible-xs details-xs">
@@ -552,7 +554,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-sm-10  col-xs-11">
+                        <div class="col-sm-10  col-xs-11" data-aos="fade-left" data-aos-duration="1000">
                             <h2 class="hidden-xs">Other Assets : </h2>
                             <div class="row intrnl-head">
                                 <div class="col-xs-12">
@@ -697,13 +699,233 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" data-aos="fade-left" data-aos-duration="1000">
                         <div class="col-xs-12">
                             <button class="btn btn-primary btn-block submit-button" type="submit">Calculate Your Results</button>
                         </div>
                     </div>
                 </form>
-                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            </div>
+        </div>
+        <div class="row result-content" id="results" style="display: none">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 save-print-row" >
+                        <div class="save-button" id="download">
+                            <a class="save"><span class="fa fa-file-pdf-o icon"><span class="sr-only">Save</span>&nbsp;</span>Save</a>
+                        </div>
+                        <div class="print-button print-doc" style="display: none">
+                            <a class="print js-btn-print"><span class="fa fa-print icon"><span class="sr-only">Print</span>&nbsp;</span>Print</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row result-summary" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="col1 col-xs-12 col-sm-4 col-md-4 col-lg-4" data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="col1-d1 img-responsive">
+                            <div>0%</div>
+                        </div>
+                        <div class="col1-d2">of your goal has been met</div>
+                    </div>
+                    <div class="col2 col-xs-12 col-sm-4 col-md-4 col-lg-4" data-aos="fade-left" data-aos-duration="1000">
+                        <div>Your retirement savings goal:</div>
+                        <div class="col2-d1">$917,461</div>
+                        <div>Your projected savings:</div>
+                        <div class="col2-d2">$917,461</div>
+                        <div class="line-divider"></div>
+                        <div><i class="fa fa-exclamation-circle"></i>You still need to save:</div>
+                        <div style="display: none;"><i class="fa fa-exclamation-circle"></i>You have a surplus of:</div>
+                        <div class="col2-d3">$917,461</div>
+                    </div>
+                    <div class="col3 col-xs-12 col-sm-4 col-md-4 col-lg-4" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="col3-d1" style="display: none;"><strong>You’ve got some more saving to do.</strong>You will need to <strong>contribute more</strong> in order to reach your <strong>retirement savings goal.</strong></div>
+                        <div class="col3-d1"><strong>You’re almost there!</strong> You will need to <strong>contribute a little more</strong> to your retirement savings to reach your retirement savings goal.</div>
+                        <div class="col3-d1" style="display: none;"><strong>Your savings are right on track!</strong> Looks like you’re on track to reach your retirement savings goal.</div>
+                        <div class="col3-d2"><strong>Speak with an advisor today</strong> to find out how your age and lifestyle can affect your savings plan.</div>
+                    </div>
+                </div>
+                <div class="row result-details boxes" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
+                                <div class="icon-container">
+                                    <i class="fa fa-user"></i>
+                                    <p class="visible-xs details-xs">
+                                        EXPLORE YOUR SAVINGS:
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 col-xs-12" data-aos="fade-left" data-aos-duration="800">
+                                <h2 class="hidden-xs heading">EXPLORE YOUR SAVINGS:</h2>
+                                <p class="sub-para hidden-xs">We've increased your registered retirement savings contributions to show you how you can reach your goal. Now try adjusting some of the other numbers below.</p>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:25px;" data-aos="fade-left" data-aos-duration="800">
+                            <div class="col-xs-12 col-sm-7 col-md-7 chart-container">
+                                <div class="row chart-buttons-row" style="margin-bottom:25px" print-remove>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="row hidden-xs">
+                                            <div class="col-sm-6 col-md-6" style="padding-right: 5px;">
+                                                <button class="btn btn-primary btn-block chart-button" id="bar-chart" ng-disabled="chartOneOpen">Super Balance Projection</button>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6" style="padding-left: 5px;">
+                                                <button class="btn btn-primary btn-block chart-button" id="area-chart" description" ng-disabled="!chartOneOpen">Income Stream Analysis</button>
+                                            </div>
+                                        </div>
+                                        <div class="row visible-xs" style="margin-top:10px;">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <button class="btn btn-primary chart-xs-btn" id="bar-chart-m" title="Super Balance Projection" ng-disabled="chartOneOpen"><i class="fa fa-bar-chart"></i></button>
+                                                <button class="btn btn-primary chart-xs-btn" id="area-chart-m" title="Income Stream Analysis" ng-disabled="!chartOneOpen"><i class="fa fa-area-chart"></i></button>
+                                                <div class="start-over-button" style="display:inline-block;position:relative;top:2px;float:right"><a class="start-over" href="javascript:void(0);"><span class="fa fa-refresh icon"><span class="sr-only">Start over</span>&nbsp;</span>Start over</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12" id="chartBox">
+                                        <div id="container" style="display:block; height:100%"></div>
+                                        <div id="containerA" style="display:none; height:100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5">
+                                <div class="row hidden-xs" style="margin-bottom:25px">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+                                        <div class="start-over-button"><a class="start-over"
+                                         href="javascript:void(0);" ng-click="resetSliders()"><span class="fa fa-refresh icon"><span class="sr-only">Start over</span>&nbsp;</span>Start over</a></div>
+                                    </div>
+                                </div>
+                                <div class="row value-container">
+                                    <div class="col-sm-12 col-md-12 col-xs-12">
+                                        <div class="row title-div" ng-click="menuDrop1();">
+                                            <div class="col-xs-2 col-md-1 col-sm-1 col-lg-1 img-btn-div">
+                                                <i class="fa fa-caret-down button caret1-down" style="display: none" aria-hidden="true"></i>
+                                                <i class="fa fa-caret-right button caret1-right" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="col-xs-11 col-md-11 col-sm-11 col-lg-11 title-wrapper">Quick Changes</div>
+                                        </div>
+                                        <div class="row form-1" ng-class="{menuDrop: isMenuDrop1}">
+                                            <div class="col-xs-12">
+                                                <div class="row result-labels">
+                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
+                                                        Annual Salary
+                                                    </div>
+                                                </div>
+                                                <div class="display-table result-table">
+                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
+                                                        <div class="slider-div-new" id="annualSalarySliderNew">
+                                                        </div>
+                                                    </div>
+                                                    <div class="display-table-cell vertical-align-middle">
+                                                        <input type="text" onClick="this.select();" class="form-control" id="annualSalaryInputNew" name="annualSalaryInputNew" ng-model="annualSalaryNew">
+                                                    </div>
+                                                </div>
+                                                <div class="row result-labels" ng-show="spouseOption">
+                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
+                                                       Spouse's Annual Salary
+                                                    </div>
+                                                </div>
+                                                <div class="display-table result-table" ng-show="spouseOption">
+                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
+                                                        <div class="slider-div-new" id="annualSalarySpouseSliderNew">
+                                                        </div>
+                                                    </div>
+                                                    <div class="display-table-cell vertical-align-middle">
+                                                        <input type="text" onClick="this.select();" class="form-control" id="annualSalarySpouseInputNew" name="annualSalarySpouseInputNew" ng-model="annualSalarySpouseNew">
+                                                    </div>
+                                                </div>
+                                                <div class="row result-labels">
+                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
+                                                        Super Balance
+                                                    </div>
+                                                </div>
+                                                <div class="display-table result-table">
+                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
+                                                        <div class="slider-div-new" id="superBalanceSliderNew">
+                                                        </div>
+                                                    </div>
+                                                    <div class="display-table-cell vertical-align-middle">
+                                                        <input type="text" onClick="this.select();" class="form-control" id="superBalanceInputNew" name="superBalanceInputNew" ng-model="superBalanceNew">
+                                                    </div>
+                                                </div>
+                                                <div class="row result-labels" ng-show="spouseOption">
+                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
+                                                        Spouse's Super Balance
+                                                    </div>
+                                                </div>
+                                                <div class="display-table result-table" ng-show="spouseOption">
+                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
+                                                        <div class="slider-div-new" id="superBalanceSpouseSliderNew">
+                                                        </div>
+                                                    </div>
+                                                    <div class="display-table-cell vertical-align-middle">
+                                                        <input type="text" onClick="this.select();" class="form-control" id="superBalanceSpouseInputNew" name="superBalanceSpouseInputNew" ng-model="superBalanceSpouseNew">
+                                                    </div>
+                                                </div>
+                                                <div class="row result-labels">
+                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
+                                                        Retirement Age
+                                                    </div>
+                                                </div>
+                                                <div class="display-table result-table">
+                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
+                                                        <div class="slider-div-new" id="retirementAgeSliderNew">
+                                                        </div>
+                                                    </div>
+                                                    <div class="display-table-cell vertical-align-middle">
+                                                        <input type="text" onClick="this.select();" class="form-control" id="retirementAgeInputNew" name="retirementAgeInputNew" ng-model="retirementAgeNew">
+                                                    </div>
+                                                </div>
+                                                <div class="row result-labels" ng-show="spouseOption">
+                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
+                                                        Spouse's Retirement Age
+                                                    </div>
+                                                </div>
+                                                <div class="display-table result-table" ng-show="spouseOption">
+                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
+                                                        <div class="slider-div-new" id="retirementAgeSpouseSliderNew">
+                                                        </div>
+                                                    </div>
+                                                    <div class="display-table-cell vertical-align-middle">
+                                                        <input type="text" onClick="this.select();" class="form-control" id="retirementAgeSpouseInputNew" name="retirementAgeSpouseInputNew" ng-model="retirementAgeSpouseNew">
+                                                    </div>
+                                                </div>
+                                                <div class="row result-labels">
+                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
+                                                        Target Income
+                                                    </div>
+                                                </div>
+                                                <div class="display-table hidden-xs result-table">
+                                                    <div class="display-table-cell vertical-align-middle">
+                                                        <div class="slider-div-new" id="targetSliderNew">
+                                                        </div>
+                                                    </div>
+                                                    <div class="display-table-cell vertical-align-middle">
+                                                        <input type="text" onClick="this.select();" class="form-control" id="targetInputNew" name="targetInput" ng-model="targetNew">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="row title-div" ng-click="menuDrop2();">
+                                            <div class="col-xs-2 col-md-1 col-sm-1 col-lg-1 img-btn-div">
+                                                <i class="fa fa-caret-down button caret2-down" aria-hidden="true"></i>
+                                                <i class="fa fa-caret-right button caret2-right" style="display: none" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="col-xs-11 col-md-11 col-sm-11 col-lg-11 title-wrapper">What if you change your retirement age or expected annual retirement income?</div>
+                                        </div>
+                                        <div class="row form-2" ng-class="{menuDrop: isMenuDrop2}">
+                                            <div class="col-xs-12">
+                                                
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -788,253 +1010,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row result-content" id="results">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row ">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="save-button">
-                            <a class="save"><span class="fa fa-file-pdf-o icon"><span class="sr-only">Save</span>&nbsp;</span>Save</a>
-                        </div>
-                        <div class="print-button">
-                            <a class="print js-btn-print"><span class="fa fa-print icon"><span class="sr-only">Print</span>&nbsp;</span>Print</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row result-summary" style="display: none;">
-                    <div class="col1 col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="col1-d1 img-responsive">
-                            <div>0%</div>
-                        </div>
-                        <div class="col1-d2">of your goal has been met</div>
-                    </div>
-                    <div class="col2 col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
-                        <div>Your retirement savings goal:</div>
-                        <div class="col2-d1">$917,461</div>
-                        <div>Your projected savings:</div>
-                        <div class="col2-d2">$917,461</div>
-                        <div class="line-divider"></div>
-                        <div><i class="fa fa-exclamation-circle"></i>You still need to save:</div>
-                        <div style="display: none;"><i class="fa fa-exclamation-circle"></i>You have a surplus of:</div>
-                        <div class="col2-d3">$917,461</div>
-                    </div>
-                    <div class="col3 col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="col3-d1" style="display: none;"><strong>You’ve got some more saving to do.</strong>You will need to <strong>contribute more</strong> in order to reach your <strong>retirement savings goal.</strong></div>
-                        <div class="col3-d1"><strong>You’re almost there!</strong> You will need to <strong>contribute a little more</strong> to your retirement savings to reach your retirement savings goal.</div>
-                        <div class="col3-d1" style="display: none;"><strong>Your savings are right on track!</strong> Looks like you’re on track to reach your retirement savings goal.</div>
-                        <div class="col3-d2"><strong>Speak with an advisor today</strong> to find out how your age and lifestyle can affect your savings plan.</div>
-                    </div>
-                </div>
-                <div class="row result-details boxes">
-                    <div class="col-xs-12">
-                        <div class="row">
-                            <div class="col-sm-2 col-xs-12">
-                                <div class="icon-container">
-                                    <i class="fa fa-user"></i>
-                                    <p class="visible-xs details-xs">
-                                        EXPLORE YOUR SAVINGS:
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-sm-9 col-xs-12">
-                                <h2 class="hidden-xs heading">EXPLORE YOUR SAVINGS:</h2>
-                                <p class="sub-para hidden-xs">We've increased your registered retirement savings contributions to show you how you can reach your goal. Now try adjusting some of the other numbers below.</p>
-                            </div>
-                        </div>
-                        <div class="row" style="padding-bottom: 35px;">
-                            <div class="col-xs-12 col-sm-7 col-md-7 chart-container">
-                                <div class="row chart-buttons-row" print-remove>
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="row hidden-xs">
-                                            <div class="col-sm-6 col-md-6" style="padding-right: 5px;">
-                                                <button class="btn btn-primary btn-block chart-button" ng-click="chartOneOpen = true" title="bar chart description" ng-disabled="chartOneOpen">Super Balance Projection</button>
-                                                </div>
-                                                <div class="col-sm-6 col-md-6" style="padding-left: 5px;">
-                                                <button class="btn btn-primary btn-block chart-button" ng-click="chartOneOpen = false" title="pie chart description" ng-disabled="!chartOneOpen">Income Stream Analysis</button>
-                                            </div>
-                                        </div>
-                                        <div class="row visible-xs" style="margin-top:10px;">
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <button class="btn btn-primary chart-xs-btn" ng-click="chartOneOpen = true" title="bar chart description" ng-disabled="chartOneOpen"><i class="fa fa-bar-chart"></i></button>
-                                                <button class="btn btn-primary chart-xs-btn" ng-click="chartOneOpen = false" title="pie chart description" ng-disabled="!chartOneOpen"><i class="fa fa-area-chart"></i></button>
-                                                <div class="start-over-button" style="display:inline-block;position:relative;top:2px;float:right"><a class="start-over" href="javascript:void(0);"><span class="fa fa-refresh icon"><span class="sr-only">Start over</span>&nbsp;</span>Start over</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12" id="chartBox">
-                                        <div id="container" ng-show="chartOneOpen" style="height:400px" ng-class="{largeWidth: needSS}"></div>
-                                        <div id="containerA" ng-hide="chartOneOpen" style="height:400px" ng-class="{largeWidth: needSS}"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-5 col-md-5">
-                                <div class="row hidden-xs">
-                                    <div class="col-xs-12 col-sm-10 col-md-10 text-right">
-                                        <div class="start-over-button" ng-click="resetSliders()"><a class="start-over"
-
-                                         href="javascript:void(0);"><span class="fa fa-refresh icon"><span class="sr-only">Start over</span>&nbsp;</span>Start over</a></div>
-                                    </div>
-                                </div>
-                                <div class="row value-container">
-                                    <div class="col-sm-12 col-md-12 col-xs-12">
-                                        <div class="row title-div" ng-click="menuDrop1();">
-                                            <div class="col-xs-2 col-md-1 col-sm-1 col-lg-1 img-btn-div">
-                                                <i class="fa fa-caret-down button caret1-down" style="display: none" aria-hidden="true"></i>
-                                                <i class="fa fa-caret-right button caret1-right" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="col-xs-11 col-md-11 col-sm-11 col-lg-11 title-wrapper">Quick Account Detail Changes</div>
-                                        </div>
-                                        <div class="row form-1" ng-class="{menuDrop: isMenuDrop1}">
-                                            <div class="col-xs-12">
-                                                <div class="row result-labels">
-                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
-                                                        Annual Salary
-                                                    </div>
-                                                </div>
-                                                <div class="display-table result-table">
-                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
-                                                        <div class="slider-div-new" id="annualSalarySliderNew">
-                                                        </div>
-                                                    </div>
-                                                    <div class="display-table-cell vertical-align-middle">
-                                                        <input type="text" onClick="this.select();" class="form-control" id="annualSalaryInputNew" name="annualSalaryInputNew" ng-model="annualSalaryNew">
-                                                    </div>
-                                                </div>
-                                                <div class="row result-labels" ng-show="spouseOption">
-                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
-                                                       Spouse's Annual Salary
-                                                    </div>
-                                                </div>
-                                                <div class="display-table result-table" ng-show="spouseOption">
-                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
-                                                        <div class="slider-div-new" id="annualSalarySpouseSliderNew">
-                                                        </div>
-                                                    </div>
-                                                    <div class="display-table-cell vertical-align-middle">
-                                                        <input type="text" onClick="this.select();" class="form-control" id="annualSalarySpouseInputNew" name="annualSalarySpouseInputNew" ng-model="annualSalarySpouseNew">
-                                                    </div>
-                                                </div>
-                                                <div class="row result-labels">
-                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
-                                                        Super Balance
-                                                    </div>
-                                                </div>
-                                                <div class="display-table result-table">
-                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
-                                                        <div class="slider-div-new" id="superBalanceSliderNew">
-                                                        </div>
-                                                    </div>
-                                                    <div class="display-table-cell vertical-align-middle">
-                                                        <input type="text" onClick="this.select();" class="form-control" id="superBalanceInputNew" name="superBalanceInputNew" ng-model="superBalanceNew">
-                                                    </div>
-                                                </div>
-                                                <div class="row result-labels" ng-show="spouseOption">
-                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
-                                                        Spouse's Super Balance
-                                                    </div>
-                                                </div>
-                                                <div class="display-table result-table" ng-show="spouseOption">
-                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
-                                                        <div class="slider-div-new" id="superBalanceSpouseSliderNew">
-                                                        </div>
-                                                    </div>
-                                                    <div class="display-table-cell vertical-align-middle">
-                                                        <input type="text" onClick="this.select();" class="form-control" id="superBalanceSpouseInputNew" name="superBalanceSpouseInputNew" ng-model="superBalanceSpouseNew">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row title-div" ng-click="menuDrop2();">
-                                            <div class="col-xs-2 col-md-1 col-sm-1 col-lg-1 img-btn-div">
-                                                <i class="fa fa-caret-down button caret2-down" aria-hidden="true"></i>
-                                                <i class="fa fa-caret-right button caret2-right" style="display: none" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="col-xs-11 col-md-11 col-sm-11 col-lg-11 title-wrapper">What if you change your retirement age or expected annual retirement income?</div>
-                                        </div>
-                                        <div class="row form-2" ng-class="{menuDrop: isMenuDrop2}">
-                                            <div class="col-xs-12">
-                                                <div class="row result-labels">
-                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
-                                                        Retirement Age
-                                                    </div>
-                                                </div>
-                                                <div class="display-table result-table">
-                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
-                                                        <div class="slider-div-new" id="retirementAgeSliderNew">
-                                                        </div>
-                                                    </div>
-                                                    <div class="display-table-cell vertical-align-middle">
-                                                        <input type="text" onClick="this.select();" class="form-control" id="retirementAgeInputNew" name="retirementAgeInputNew" ng-model="retirementAgeNew">
-                                                    </div>
-                                                </div>
-                                                <div class="row result-labels" ng-show="spouseOption">
-                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
-                                                        Spouse's Retirement Age
-                                                    </div>
-                                                </div>
-                                                <div class="display-table result-table" ng-show="spouseOption">
-                                                    <div class="hidden-xs display-table-cell vertical-align-middle">
-                                                        <div class="slider-div-new" id="retirementAgeSpouseSliderNew">
-                                                        </div>
-                                                    </div>
-                                                    <div class="display-table-cell vertical-align-middle">
-                                                        <input type="text" onClick="this.select();" class="form-control" id="retirementAgeSpouseInputNew" name="retirementAgeSpouseInputNew" ng-model="retirementAgeSpouseNew">
-                                                    </div>
-                                                </div>
-                                                <div class="row result-labels">
-                                                    <div class="col-xs-6 col-md-12 col-sm-12 col-lg-12">
-                                                        Target Income
-                                                    </div>
-                                                </div>
-                                                <div class="display-table hidden-xs result-table">
-                                                    <div class="display-table-cell vertical-align-middle">
-                                                        <div class="slider-div-new" id="targetSliderNew">
-                                                        </div>
-                                                    </div>
-                                                    <div class="display-table-cell vertical-align-middle">
-                                                        <input type="text" onClick="this.select();" class="form-control" id="targetInputNew" name="targetInput" ng-model="targetNew">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <div class="feedback " data-toggle="modal" data-target="#myModal1">
+    <div class="feedback " data-toggle="modal" data-target="#myModal1" data-aos="fade-left" data-aos-duration="1000">
         <i class="fa fa-comments faa-tada animated" aria-hidden="true"></i>
         <label>Feedback</label>
-    </div>
-    <div class="container style=" display: none; " print-container">
-        <div class="row button-preview">
-            <div class="col-xs-12">
-                <div class="button-row">
-                    <img src="images/client-logo.png">
-                    <button class="btn btn-primary ">Print</button>
-                    <button class="btn btn-primary ">Close</button>
-                </div>
-            </div>
-        </div>
-        <div class="row print-preview">
-            <div class="col-xs-12">
-                <div class="row page-1">
-                    <div class="col-xs-12">
-                    </div>
-                </div>
-                <div class="row page-2">
-                    <div class="col-xs-12">
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
     <script src="js/angular.min.js" type="text/javascript"></script>
@@ -1084,6 +1063,14 @@
     <script src="js/StackBlur.js" type="text/javascript"></script>
     <script src="js/canvg.min.js" type="text/javascript"></script>
     <script src="js/PdfMaker.js" type="text/javascript"></script>
+    <script src="js/aos.js" type="text/javascript"></script>
+    <script>
+        AOS.init({
+            offset:60,
+            once : false,
+            disable :'mobile'
+          });
+    </script>
 </body>
 
 </html>
