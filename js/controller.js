@@ -11,7 +11,14 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $scope.forms = {};
 
-    $scope.personalDetails = {};
+    $scope.personalDetails = {
+        firstName : "Amit",
+        lastName : "Kumar",
+        email : "iamitkrs@gmail.com",
+        mobile: 412121212,
+        postalCode : 1234
+    };
+
     var d = document.getElementsByClassName('title-div');
 
     $scope.chartOneOpen = true;
@@ -2553,7 +2560,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
             if(closeInputs){
                 document.getElementById("inputs").style.display = "none";
-                document.getElementById("results").style.display = "block";
+               $("#results").animate({height: 'toggle'},2000);
             }
 
             // console.log('chaling');
@@ -2963,10 +2970,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         var sliders = document.getElementsByClassName("slider-div");
         [].forEach.call(sliders,function(slider){
             slider.noUiSlider.reset();})
-
         document.getElementById("results").style.display = "none";
-        document.getElementById("inputs").style.display = "block";
-
+        // document.getElementById("inputs").style.display = "block";
+        $("#inputs").animate({height: 'toggle'},2000);
     }
 
 
