@@ -235,6 +235,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $scope.enableNewSliders = true;
 
+    $scope.saveWithNew = false;
+
     var leMember1 = $scope.genderOption ? maleExpectancy[$scope.age] : femaleExpectancy[$scope.age];
 
     var leMember2 = $scope.genderOptionSpouse ? maleExpectancy[$scope.ageSpouse] : femaleExpectancy[$scope.ageSpouse];
@@ -1785,6 +1787,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
         retirementAgeSliderNew.noUiSlider.on('set', function(values, handle) {
+            $scope.saveWithNew = true;
             $scope.newChangesApplied = true;
         retirementAgeInputNew.value = values[handle];
         $scope.retirementAgeNew = (values[handle]);
@@ -1821,6 +1824,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
         annualSalarySliderNew.noUiSlider.on('set', function(values, handle){
+            $scope.saveWithNew = true;
         $scope.newChangesApplied = true;
         annualSalaryInputNew.value = values[handle];
         $scope.annualSalaryNew = (values[handle]);
@@ -1859,6 +1863,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     superBalanceSliderNew.noUiSlider.on('set', function(values, handle) {
+        $scope.saveWithNew = true;
         $scope.newChangesApplied = true;
         superBalanceInputNew.value = values[handle];
         $scope.superBalanceNew = (values[handle]);
@@ -1951,6 +1956,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     annualSalarySpouseSliderNew.noUiSlider.on('set', function(values, handle) {
+        $scope.saveWithNew = true;
         $scope.newChangesApplied = true;
         annualSalarySpouseInputNew.value = values[handle];
         $scope.annualSalarySpouse = (values[handle]);
@@ -1973,6 +1979,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
         superBalanceSpouseSliderNew.noUiSlider.on('set', function(values, handle) {
+            $scope.saveWithNew = true;
         $scope.newChangesApplied = true;
         superBalanceSpouseInputNew.value = values[handle];
         $scope.superBalanceSpouseNew = (values[handle]);
@@ -2050,6 +2057,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     retirementAgeSpouseSliderNew.noUiSlider.on('set', function(values, handle) {
+        $scope.saveWithNew = true;
         $scope.newChangesApplied = true;
         retirementAgeSpouseInputNew.value = values[handle];
         $scope.retirementAgeSpouseNew = (values[handle]);
@@ -2175,6 +2183,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     targetSliderNew.noUiSlider.on('set', function(values, handle) {
+        $scope.saveWithNew = true;
         $scope.newChangesApplied = true;
         targetInputNew.value = values[handle];
         $scope.target = (values[handle]);
@@ -2560,7 +2569,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
             if(closeInputs){
                 document.getElementById("inputs").style.display = "none";
-               $("#results").animate({height: 'toggle'},2000);
+               $("#results").animate({height: 'toggle'},1500);
+               // document.getElementById("results").style.display = "block";
             }
 
             // console.log('chaling');
@@ -2747,6 +2757,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                 }
                 ChartServiceHc.createChart(totalSuperBalanceArray.slice(0, 5 + Math.ceil(leMember1)));
                 AreaChartService.createChart(member1APArray.slice(0, 5 + Math.ceil(leMember1)), [], member1PensionArray.slice(0, 5 + Math.ceil(leMember1)), [], leMember1, leMember2, false, targetIncome);
+
             } else {
                 while (member1APArray.length <= Math.max(Math.ceil(leMember1), Math.ceil(leMember2))) {
                     member1APArray.push(0);
@@ -2775,156 +2786,160 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $scope.calculateFinal(true,false);
 
-    // document.getElementById("download").addEventListener("click", function() {
+    document.getElementById("download").addEventListener("click", function() {
 
-    //     if ($scope.forms.ttrForm.$valid) {
+        if ($scope.forms.ttrForm.$valid) {
 
-    //         var annualSalary1 = Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
-    //         var superBalance1 = Number($scope.superBalance.replaceAll('$', '').replaceAll(',', ''));
-    //         var wageIncrease1 = Number($scope.wageIncrease.replaceAll('%', ''));
-    //         var inflation1 = Number($scope.inflation.replaceAll('%', ''));
-    //         var investmentReturn1 = Number($scope.investmentReturn.replaceAll('%', ''));
-    //         var variableFee1 = Number($scope.variableFee.replaceAll('%', ''));
-    //         var employerContributionLevel1 = Number($scope.employerContributionLevel.replaceAll('%', ''));
-    //         var salarySacrifice1 = Number($scope.salarySacrifice.replaceAll('$', '').replaceAll(',', ''));
-    //         var fixedFee1 = Number($scope.fixedFee.replaceAll('$', '').replaceAll(',', ''));
-    //         var insurancePremium1 = Number($scope.insurancePremium.replaceAll('$', '').replaceAll(',', ''));
-    //         var retirementAge1 = $scope.retirementAge;
-    //         var pensionStart1 = $scope.pensionStart;
-    //         var ddBase1 = Number($scope.pensionDrawdownBase.replaceAll('$', '').replaceAll(',', ''));
-    //         var targetIncome = Number($scope.target.replaceAll('$', '').replaceAll(',', ''));
-    //         var gender = $scope.genderOption ? "Male" : "Female";
-
-
-
-    //         var annualSalary1Spouse = Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', ''));
-    //         var superBalance1Spouse = Number($scope.superBalanceSpouse.replaceAll('$', '').replaceAll(',', ''));
-    //         var wageIncrease1Spouse = Number($scope.wageIncreaseSpouse.replaceAll('%', ''));
-    //         var inflation1Spouse = Number($scope.inflationSpouse.replaceAll('%', ''));
-    //         var investmentReturn1Spouse = Number($scope.investmentReturnSpouse.replaceAll('%', ''));
-    //         var variableFee1Spouse = Number($scope.variableFeeSpouse.replaceAll('%', ''));
-    //         var employerContributionLevel1Spouse = Number($scope.employerContributionLevelSpouse.replaceAll('%', ''));
-    //         var salarySacrifice1Spouse = Number($scope.salarySacrificeSpouse.replaceAll('$', '').replaceAll(',', ''));
-    //         var fixedFee1Spouse = Number($scope.fixedFeeSpouse.replaceAll('$', '').replaceAll(',', ''));
-    //         var insurancePremium1Spouse = Number($scope.insurancePremiumSpouse.replaceAll('$', '').replaceAll(',', ''));
-    //         var retirementAge1Spouse = $scope.retirementAgeSpouse;
-    //         var pensionStart1Spouse = $scope.pensionStartSpouse;
-    //         var ddBase1Spouse = Number($scope.pensionDrawdownBaseSpouse.replaceAll('$', '').replaceAll(',', ''));
-    //         var genderSpouse = $scope.genderOptionSpouse ? "Male" : "Female";
+            var annualSalary1 = $scope.saveWithNew ? Number($scope.annualSalaryNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
+            var superBalance1 = $scope.saveWithNew ? Number($scope.superBalanceNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.superBalance.replaceAll('$', '').replaceAll(',', ''));
+            var wageIncrease1 = Number($scope.wageIncrease.replaceAll('%', ''));
+            var inflation1 = Number($scope.inflation.replaceAll('%', ''));
+            var investmentReturn1 = Number($scope.investmentReturn.replaceAll('%', ''));
+            var variableFee1 = Number($scope.variableFee.replaceAll('%', ''));
+            var employerContributionLevel1 = Number($scope.employerContributionLevel.replaceAll('%', ''));
+            var salarySacrifice1 = Number($scope.salarySacrifice.replaceAll('$', '').replaceAll(',', ''));
+            var fixedFee1 = Number($scope.fixedFee.replaceAll('$', '').replaceAll(',', ''));
+            var insurancePremium1 = Number($scope.insurancePremium.replaceAll('$', '').replaceAll(',', ''));
+            var retirementAge1 = $scope.saveWithNew ? $scope.retirementAgeNew : $scope.retirementAge ;
+            var pensionStart1 = $scope.pensionStart;
+            var ddBase1 = Number($scope.pensionDrawdownBase.replaceAll('$', '').replaceAll(',', ''));
+            var targetIncome = $scope.saveWithNew ? Number($scope.targetNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.target.replaceAll('$', '').replaceAll(',', ''));
+            var gender = $scope.genderOption ? "Male" : "Female";
 
 
-    //         var homeContents = Number($scope.homeContents.replaceAll('$', '').replaceAll(',', ''));
-    //         var vehicleCost = Number($scope.vehicleCost.replaceAll('$', '').replaceAll(',', ''));
-    //         var investmentProperty = Number($scope.investmentProperty.replaceAll('$', '').replaceAll(',', ''));
-    //         var bankAssets = Number($scope.bankAssets.replaceAll('$', '').replaceAll(',', ''));
-    //         var listedInvestment = Number($scope.listedInvestment.replaceAll('$', '').replaceAll(',', ''));
-    //         var marginLoans = Number($scope.marginLoans.replaceAll('$', '').replaceAll(',', ''));
-    //         var allocatedPension = Number($scope.allocatedPension.replaceAll('$', '').replaceAll(',', ''));
-    //         var otherInvestment = Number($scope.otherInvestment.replaceAll('$', '').replaceAll(',', ''));
-    //         var employmentIncome = Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
-    //         var employmentIncomePartner = $scope.spouseOption ? Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', '')) : 0;
-    //         var netRentalIncome = Number($scope.netRentalIncome.replaceAll('$', '').replaceAll(',', ''));
-    //         var otherIncome = Number($scope.otherIncome.replaceAll('$', '').replaceAll(',', ''));
-    //         var pensionIncome = Number($scope.pensionIncome.replaceAll('$', '').replaceAll(',', ''));
-    //         var drawdownValue;
-    //         var drawdownValueSpouse;
 
-    //         drawdownValue = $scope.showPensionOption ? ddBase1 : minDrawdown;
-    //         drawdownValueSpouse = $scope.showPensionOptionSpouse ? ddBase1Spouse : minDrawdown;
-
-    //         var personalDetails = {
-    //             dob: $scope.dob,
-    //             age: $scope.age,
-    //             annualSalary: annualSalary1,
-    //             superBalance: superBalance1,
-    //             retirementAge: retirementAge1,
-    //             gender: gender,
-    //             salarySacrifice: salarySacrifice1,
-    //             pensionAge: pensionStart1,
-    //             spouseOption: $scope.spouseOption,
-    //             houseOption: $scope.houseOption,
-    //             targetIncome: targetIncome
-    //         }
-
-    //         // console.log('personalDetails', personalDetails);
-
-    //         var personalDetailsSpouse = {
-    //                 dob: $scope.dobSpouse,
-    //                 age: $scope.ageSpouse,
-    //                 annualSalary: annualSalary1Spouse,
-    //                 superBalance: superBalance1Spouse,
-    //                 retirementAge: retirementAge1Spouse,
-    //                 gender: genderSpouse,
-    //                 salarySacrifice: salarySacrifice1Spouse,
-    //                 pensionAge: pensionStart1Spouse
-    //             }
-    //             // console.log('personalDetailsSpouse', personalDetailsSpouse);
-
-    //         var assumptions = {
-    //                 insurancePremium: insurancePremium1,
-    //                 investmentReturn: investmentReturn1,
-    //                 variableFee: variableFee1,
-    //                 fixedFee: fixedFee1,
-    //                 employerContributionLevel: employerContributionLevel1,
-    //                 inflation: inflation1,
-    //                 wageIncrease: wageIncrease1,
-    //                 pensionDrawdownBase: drawdownValue
-    //             }
-    //             // console.log('assumptions', assumptions);
-
-    //         var assumptionsSpouse = {
-    //             insurancePremium: insurancePremium1Spouse,
-    //             investmentReturn: investmentReturn1Spouse,
-    //             variableFee: variableFee1Spouse,
-    //             fixedFee: fixedFee1Spouse,
-    //             employerContributionLevel: employerContributionLevel1Spouse,
-    //             inflation: inflation1Spouse,
-    //             wageIncrease: wageIncrease1Spouse,
-    //             pensionDrawdownBase: drawdownValueSpouse
-    //         }
-
-    //         // console.log('assumptionsSpouse', assumptionsSpouse);
+            var annualSalary1Spouse = $scope.saveWithNew ? Number($scope.annualSalarySpouseNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', ''));
+            var superBalance1Spouse = $scope.saveWithNew ? Number($scope.superBalanceSpouseNew.replaceAll('$', '').replaceAll(',', '')) : Number($scope.superBalanceSpouse.replaceAll('$', '').replaceAll(',', ''));
+            var wageIncrease1Spouse = Number($scope.wageIncreaseSpouse.replaceAll('%', ''));
+            var inflation1Spouse = Number($scope.inflationSpouse.replaceAll('%', ''));
+            var investmentReturn1Spouse = Number($scope.investmentReturnSpouse.replaceAll('%', ''));
+            var variableFee1Spouse = Number($scope.variableFeeSpouse.replaceAll('%', ''));
+            var employerContributionLevel1Spouse = Number($scope.employerContributionLevelSpouse.replaceAll('%', ''));
+            var salarySacrifice1Spouse = Number($scope.salarySacrificeSpouse.replaceAll('$', '').replaceAll(',', ''));
+            var fixedFee1Spouse = Number($scope.fixedFeeSpouse.replaceAll('$', '').replaceAll(',', ''));
+            var insurancePremium1Spouse = Number($scope.insurancePremiumSpouse.replaceAll('$', '').replaceAll(',', ''));
+            var retirementAge1Spouse = $scope.saveWithNew ? $scope.retirementAgeSpouseNew : $scope.retirementAgeSpouse;
+            var pensionStart1Spouse = $scope.pensionStartSpouse;
+            var ddBase1Spouse = Number($scope.pensionDrawdownBaseSpouse.replaceAll('$', '').replaceAll(',', ''));
+            var genderSpouse = $scope.genderOptionSpouse ? "Male" : "Female";
 
 
-    //         var otherAssets = {
-    //             homeContents: homeContents,
-    //             vehicleCost: vehicleCost,
-    //             investmentProperty: investmentProperty,
-    //             bankAssets: bankAssets,
-    //             listedInvestment: listedInvestment,
-    //             marginLoans: marginLoans,
-    //             otherInvestment: otherInvestment,
-    //             netRentalIncome: netRentalIncome,
-    //             otherIncome: otherIncome,
-    //             pensionIncome: pensionIncome,
-    //             allocatedPension: allocatedPension
-    //         }
+            var homeContents = Number($scope.homeContents.replaceAll('$', '').replaceAll(',', ''));
+            var vehicleCost = Number($scope.vehicleCost.replaceAll('$', '').replaceAll(',', ''));
+            var investmentProperty = Number($scope.investmentProperty.replaceAll('$', '').replaceAll(',', ''));
+            var bankAssets = Number($scope.bankAssets.replaceAll('$', '').replaceAll(',', ''));
+            var listedInvestment = Number($scope.listedInvestment.replaceAll('$', '').replaceAll(',', ''));
+            var marginLoans = Number($scope.marginLoans.replaceAll('$', '').replaceAll(',', ''));
+            var allocatedPension = Number($scope.allocatedPension.replaceAll('$', '').replaceAll(',', ''));
+            var otherInvestment = Number($scope.otherInvestment.replaceAll('$', '').replaceAll(',', ''));
+            var employmentIncome = Number($scope.annualSalary.replaceAll('$', '').replaceAll(',', ''));
+            var employmentIncomePartner = $scope.spouseOption ? Number($scope.annualSalarySpouse.replaceAll('$', '').replaceAll(',', '')) : 0;
+            var netRentalIncome = Number($scope.netRentalIncome.replaceAll('$', '').replaceAll(',', ''));
+            var otherIncome = Number($scope.otherIncome.replaceAll('$', '').replaceAll(',', ''));
+            var pensionIncome = Number($scope.pensionIncome.replaceAll('$', '').replaceAll(',', ''));
+            var drawdownValue;
+            var drawdownValueSpouse;
+
+            drawdownValue = $scope.showPensionOption ? ddBase1 : minDrawdown;
+            drawdownValueSpouse = $scope.showPensionOptionSpouse ? ddBase1Spouse : minDrawdown;
+
+            var personalDetails = {
+                dob: $scope.dob,
+                age: $scope.age,
+                annualSalary: annualSalary1,
+                superBalance: superBalance1,
+                retirementAge: retirementAge1,
+                gender: gender,
+                salarySacrifice: salarySacrifice1,
+                pensionAge: pensionStart1,
+                spouseOption: $scope.spouseOption,
+                houseOption: $scope.houseOption,
+                targetIncome: targetIncome
+            }
+
+            // console.log('personalDetails', personalDetails);
+
+            var personalDetailsSpouse = {
+                    dob: $scope.dobSpouse,
+                    age: $scope.ageSpouse,
+                    annualSalary: annualSalary1Spouse,
+                    superBalance: superBalance1Spouse,
+                    retirementAge: retirementAge1Spouse,
+                    gender: genderSpouse,
+                    salarySacrifice: salarySacrifice1Spouse,
+                    pensionAge: pensionStart1Spouse
+                }
+                // console.log('personalDetailsSpouse', personalDetailsSpouse);
+
+            var assumptions = {
+                    insurancePremium: insurancePremium1,
+                    investmentReturn: investmentReturn1,
+                    variableFee: variableFee1,
+                    fixedFee: fixedFee1,
+                    employerContributionLevel: employerContributionLevel1,
+                    inflation: inflation1,
+                    wageIncrease: wageIncrease1,
+                    pensionDrawdownBase: drawdownValue
+                }
+                // console.log('assumptions', assumptions);
+
+            var assumptionsSpouse = {
+                insurancePremium: insurancePremium1Spouse,
+                investmentReturn: investmentReturn1Spouse,
+                variableFee: variableFee1Spouse,
+                fixedFee: fixedFee1Spouse,
+                employerContributionLevel: employerContributionLevel1Spouse,
+                inflation: inflation1Spouse,
+                wageIncrease: wageIncrease1Spouse,
+                pensionDrawdownBase: drawdownValueSpouse
+            }
+
+            // console.log('assumptionsSpouse', assumptionsSpouse);
 
 
-    //         // console.log('otherAssets', otherAssets);
-    //         PdfMaker.createChart($scope.personalDetails, personalDetails, personalDetailsSpouse, assumptions, assumptionsSpouse, otherAssets);
+            var otherAssets = {
+                homeContents: homeContents,
+                vehicleCost: vehicleCost,
+                investmentProperty: investmentProperty,
+                bankAssets: bankAssets,
+                listedInvestment: listedInvestment,
+                marginLoans: marginLoans,
+                otherInvestment: otherInvestment,
+                netRentalIncome: netRentalIncome,
+                otherIncome: otherIncome,
+                pensionIncome: pensionIncome,
+                allocatedPension: allocatedPension
+            }
 
-    //     } else {
-    //         $("#myModal").modal('show');
-    //         $("html, body").animate({ scrollTop: 0 }, "slow");
-    //     }
-    // });
+
+            // console.log('otherAssets', otherAssets);
+            PdfMaker.createChart($scope.personalDetails, personalDetails, personalDetailsSpouse, assumptions, assumptionsSpouse, otherAssets);
+
+        } else {
+            $("#myModal").modal('show');
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+        }
+    });
 
     // document.getElementById("bar-chart").addEventListener("click", function() {
-    //     $scope.chartOneOpen = true;
-    //     $("#containerA").highcharts().reflow();
-    //     document.getElementById("containerA").style.display = "none";
-    //     document.getElementById("container").style.display = "block";
-    //     $("#container").highcharts().reflow();
-    // });
+        $("#bar-chart,#bar-chart-m").on("click",function(){
+        $scope.chartOneOpen = true;
+        $("#containerA").highcharts().reflow();
+        document.getElementById("containerA").style.display = "none";
+        document.getElementById("container").style.display = "block";
+        $("#container").highcharts().reflow();
+        $timeout(0);
+    });
 
     // document.getElementById("area-chart").addEventListener("click", function() {
-    //     $scope.chartOneOpen = false;
-    //     $("#container").highcharts().reflow();
-    //     document.getElementById("container").style.display = "none";
-    //     document.getElementById("containerA").style.display = "block";
-    //     $("#containerA").highcharts().reflow();
-    // });
+        $("#area-chart,#area-chart-m").on("click",function(){
+        $scope.chartOneOpen = false;
+        $("#container").highcharts().reflow();
+        document.getElementById("container").style.display = "none";
+        document.getElementById("containerA").style.display = "block";
+        $("#containerA").highcharts().reflow();
+        $timeout(0);
+    });
 
     $(".print-doc").on("click", printBothCharts);
 
@@ -2971,8 +2986,10 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         [].forEach.call(sliders,function(slider){
             slider.noUiSlider.reset();})
         document.getElementById("results").style.display = "none";
-        // document.getElementById("inputs").style.display = "block";
         $("#inputs").animate({height: 'toggle'},2000);
+         // document.getElementById("inputs").style.display = "block";
+
+        $scope.saveWithNew = false;
     }
 
 

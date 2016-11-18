@@ -96,7 +96,7 @@ app.service('ChartServiceHc', function() {
                     return '<b>' + 'Amount : $' + Highcharts.numberFormat((((this.y)).toFixed(2)), 2, '.') + '</b>';
 
                 },
-                headerFormat: '<span style="font-weight:700;font-size:14px;"> Income distribution year {point.key}</span><br>'
+                headerFormat: '<span style="font-weight:700;font-size:14px;"> Superannuation Balance year {point.key}</span><br>'
 
             },
             credits: {
