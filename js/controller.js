@@ -12,11 +12,11 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.forms = {};
 
     $scope.personalDetails = {
-        firstName : "Amit",
-        lastName : "Kumar",
-        email : "iamitkrs@gmail.com",
-        mobile: 412121212,
-        postalCode : 1234
+        // firstName : "Amit",
+        // lastName : "Kumar",
+        // email : "iamitkrs@gmail.com",
+        // mobile: 412121212,
+        // postalCode : 1234
     };
 
     var d = document.getElementsByClassName('title-div');

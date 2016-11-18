@@ -388,7 +388,7 @@ input:-webkit-autofill {
     background-color: #f2f2f2;
 }
 
-#myModal1 .modal-header h4 {
+.modal-header h4 {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
@@ -514,3 +514,12 @@ body {
     display:block !important;
   }
 }
+
+.image-holder img{
+	float:left;
+	width:30%;
+}
+
+.image-holder button{
+	margin-top:5px;
+} 
