@@ -16,7 +16,7 @@ app.service('ChartServiceHc', function() {
         if (balanceArray.length > 30) {
             for (var i = 0; i < balanceArray.length; i++) {
                 infoData.push({
-                    name: "",
+                    name: i,
                     y: balanceArray[i]
                 });
             }
