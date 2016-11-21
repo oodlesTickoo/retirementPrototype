@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="bower_components/angularPrint/angularPrint.css">
     <link rel="stylesheet" href="css/font-awesome-animation.min.css">
-    <link rel="stylesheet" href="css/aos.css">
+    <!-- <link rel="stylesheet" href="css/aos.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
 </head>
 
@@ -45,8 +45,8 @@
                     </div>
                 </div>
                 <form class="ttrForm" name="forms.ttrForm" ng-submit="calculateFinal(forms.ttrForm.$valid,true) " novalidate>
-                    <div class="row boxes tell-us" id="tell-us" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="row boxes tell-us" id="tell-us" >
+                        <div class="col-sm-2 col-xs-12" >
                             <div class="icon-container">
                                 <i class="fa fa-user"></i>
                                 <p class="visible-xs details-xs">
@@ -54,7 +54,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-sm-10  col-xs-11" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="col-sm-10  col-xs-11 contents" >
                             <h2 class="hidden-xs">
                                 Tell Us About Yourself : 
                             </h2>
@@ -167,8 +167,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row boxes account-details" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="row boxes account-details" >
+                        <div class="col-sm-2 col-xs-12" >
                             <div class="icon-container">
                                 <i class="fa fa-pie-chart"></i>
                                 <p class="visible-xs details-xs">
@@ -176,7 +176,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-sm-10  col-xs-11" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="col-sm-10  col-xs-11 contents" >
                             <h2 class="hidden-xs">
                                 Your Account Details :
                             </h2>
@@ -361,8 +361,8 @@
                         <div class="col-sm-2">
                         </div>
                     </div>
-                    <div class="row boxes spouse-account-details" ng-show="spouseOption" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="row boxes spouse-account-details"  ng-show="spouseOption">
+                        <div class="col-sm-2 col-xs-12" >
                             <div class="icon-container">
                                 <i class="fa fa-user"></i>
                                 <p class="visible-xs details-xs">
@@ -370,7 +370,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-sm-10 col-xs-12" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="col-sm-10 col-xs-12 contents" >
                             <h2 class="hidden-xs">Spouse's Account Details :</h2>
                             <div class="form-group row">
                                 <label for="annualSalarySpouseInput" class="col-xs-6 col-md-3 col-sm-3 col-form-label">
@@ -545,8 +545,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row boxes other-assets" id="other-assets-div" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="row boxes other-assets" id="other-assets-div" >
+                        <div class="col-sm-2 col-xs-12" >
                             <div class="icon-container">
                                 <i class="fa fa-usd"></i>
                                 <p class="visible-xs details-xs">
@@ -554,7 +554,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-sm-10  col-xs-11" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="col-sm-10  col-xs-11 contents" >
                             <h2 class="hidden-xs">Other Assets : </h2>
                             <div class="row intrnl-head">
                                 <div class="col-xs-12">
@@ -699,7 +699,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="row calculate-row">
                         <div class="col-xs-12">
                             <button class="btn btn-primary btn-block submit-button" type="submit">Calculate Your Results</button>
                         </div>
@@ -709,7 +709,7 @@
         </div>
         <div class="row result-content" id="results" style="display: none">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row" data-aos="fade-up" data-aos-duration="1000">
+                <div class="row" >
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 save-print-row" >
                         <div class="save-button" id="download">
                             <a class="save"><span class="fa fa-file-pdf-o icon"><span class="sr-only">Save</span>&nbsp;</span>Save</a>
@@ -719,14 +719,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="row result-summary" style="display: none;" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col1 col-xs-12 col-sm-4 col-md-4 col-lg-4" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="row result-summary" style="display: none;" >
+                    <div class="col1 col-xs-12 col-sm-4 col-md-4 col-lg-4" >
                         <div class="col1-d1 img-responsive">
                             <div>0%</div>
                         </div>
                         <div class="col1-d2">of your goal has been met</div>
                     </div>
-                    <div class="col2 col-xs-12 col-sm-4 col-md-4 col-lg-4" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="col2 col-xs-12 col-sm-4 col-md-4 col-lg-4" >
                         <div>Your retirement savings goal:</div>
                         <div class="col2-d1">$917,461</div>
                         <div>Your projected savings:</div>
@@ -736,17 +736,17 @@
                         <div style="display: none;"><i class="fa fa-exclamation-circle"></i>You have a surplus of:</div>
                         <div class="col2-d3">$917,461</div>
                     </div>
-                    <div class="col3 col-xs-12 col-sm-4 col-md-4 col-lg-4" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="col3 col-xs-12 col-sm-4 col-md-4 col-lg-4" >
                         <div class="col3-d1" style="display: none;"><strong>You’ve got some more saving to do.</strong>You will need to <strong>contribute more</strong> in order to reach your <strong>retirement savings goal.</strong></div>
                         <div class="col3-d1"><strong>You’re almost there!</strong> You will need to <strong>contribute a little more</strong> to your retirement savings to reach your retirement savings goal.</div>
                         <div class="col3-d1" style="display: none;"><strong>Your savings are right on track!</strong> Looks like you’re on track to reach your retirement savings goal.</div>
                         <div class="col3-d2"><strong>Speak with an advisor today</strong> to find out how your age and lifestyle can affect your savings plan.</div>
                     </div>
                 </div>
-                <div class="row result-details boxes" data-aos="fade-up" data-aos-duration="1000">
+                <div class="row result-details boxes" >
                     <div class="col-xs-12">
                         <div class="row">
-                            <div class="col-sm-2 col-xs-12" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="col-sm-2 col-xs-12" >
                                 <div class="icon-container">
                                     <i class="fa fa-user"></i>
                                     <p class="visible-xs details-xs">
@@ -754,12 +754,12 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-sm-9 col-xs-12" data-aos="fade-left" data-aos-duration="800">
+                            <div class="col-sm-9 col-xs-12" >
                                 <h2 class="hidden-xs heading">EXPLORE YOUR SAVINGS:</h2>
                                 <p class="sub-para hidden-xs">We've increased your registered retirement savings contributions to show you how you can reach your goal. Now try adjusting some of the other numbers below.</p>
                             </div>
                         </div>
-                        <div class="row" style="margin-top:25px;" data-aos="fade-left" data-aos-duration="800">
+                        <div class="row result-contents" style="margin-top:25px;" >
                             <div class="col-xs-12 col-sm-7 col-md-7 chart-container">
                                 <div class="row chart-buttons-row" style="margin-bottom:25px" print-remove>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -1015,7 +1015,7 @@
                     </div>
                 </div>
     </div>
-    <div class="feedback " data-toggle="modal" data-target="#myModal1" data-aos="fade-left" data-aos-duration="1000">
+    <div class="feedback " data-toggle="modal" data-target="#myModal1" >
         <i class="fa fa-comments faa-tada animated" aria-hidden="true"></i>
         <label>Feedback</label>
     </div>
@@ -1067,13 +1067,25 @@
     <script src="js/StackBlur.js" type="text/javascript"></script>
     <script src="js/canvg.min.js" type="text/javascript"></script>
     <script src="js/PdfMaker.js" type="text/javascript"></script>
-    <script src="js/aos.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
+    <!-- <script src="js/aos.js" type="text/javascript"></script> -->
     <script>
-        AOS.init({
-            offset:60,
-            once : false,
-            disable :'mobile'
-          });
+        // AOS.init({
+        //     offset:60,
+        //     once : false,
+        //     disable :'mobile'
+        //   });
+
+        // {reset:false,mobile:false,origin:'right',distance:'50px',duration:1500}
+
+        window.sr = ScrollReveal({duration:1000,scale:1});
+
+       window.contentRevealOptions = {origin:'right',distance:'100px',reset:false,afterReveal:function(){this.reset = false}};
+
+        // sr.reveal('.boxes',{reset:false});
+        sr.reveal('.icon-container',{});
+        sr.reveal('.contents',contentRevealOptions);
+        sr.reveal('.result-contents',{origin:'right',distance:'60px',duration:2000,reset:true});
     </script>
 </body>
 
