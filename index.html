@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
 </head>
 
-<body print-section>
+<body print-section ng-cloak>
     <div class="container" style="display: block;" ng-controller="TTRController">
         <div class="row page-heading">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -719,7 +719,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row result-summary" style="display: none;" >
+                <div class="row result-summary" style="display:block;" >
                     <div class="col1 col-xs-12 col-sm-4 col-md-4 col-lg-4" >
                         <div class="col1-d1 img-responsive">
                             <div>0%</div>
@@ -1085,7 +1085,7 @@
         // sr.reveal('.boxes',{reset:false});
         sr.reveal('.icon-container',{});
         sr.reveal('.contents',contentRevealOptions);
-        sr.reveal('.result-contents',{origin:'right',distance:'60px',duration:2000,reset:true});
+        sr.reveal('.result-contents',{origin:'right',distance:'60px',duration:2000});
     </script>
 </body>
 
