@@ -12,11 +12,11 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.forms = {};
 
     $scope.personalDetails = {
-        // firstName : "Amit",
-        // lastName : "Kumar",
-        // email : "iamitkrs@gmail.com",
-        // mobile: 412121212,
-        // postalCode : 1234
+        firstName : "Amit",
+        lastName : "Kumar",
+        email : "iamitkrs@gmail.com",
+        mobile: 412121212,
+        postalCode : 1234
     };
 
     var d = document.getElementsByClassName('title-div');
@@ -2569,8 +2569,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
             if(closeInputs){
                 document.getElementById("inputs").style.display = "none";
-               $("#results").animate({height: 'toggle'},1500);
-               // document.getElementById("results").style.display = "block";
+               // $("#results").animate({height: 'toggle'},1500);
+                       document.body.scrollTop = document.documentElement.scrollTop = 0;
+               document.getElementById("results").style.display = "block";
             }
 
             // console.log('chaling');
@@ -2989,8 +2990,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         [].forEach.call(sliders,function(slider){
             slider.noUiSlider.reset();})
         document.getElementById("results").style.display = "none";
-        $("#inputs").animate({height: 'toggle'},2000);
-         // document.getElementById("inputs").style.display = "block";
+        // $("#inputs").animate({height: 'toggle'},2000);
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+         document.getElementById("inputs").style.display = "block";
 
         $scope.saveWithNew = false;
     }
