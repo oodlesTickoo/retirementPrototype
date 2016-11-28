@@ -198,8 +198,8 @@
     /*color: #fff;!important;*/
     /*background-color: #91B6BE !important;*/
     /*border:1px solid #ddd !important;*/
-    color: #424242 !important;
-    outline: none !important;
+    /*color: #424242 !important;
+    outline: none !important;*/
 }
 
 .btn-primary,
@@ -266,7 +266,7 @@
 }
 
 .result-table>div:nth-child(1) {
-    width: 60%;
+    width: 100%;
     padding-right: 10%
 }
 
@@ -302,8 +302,11 @@
     font-weight: 600;
     white-space: normal;
     padding-top: 10px;
+    padding-bottom: 10px;
     /*margin-top: 20px;*/
 }
+
+
 
 .result-labels {
     font-size: 18px;
@@ -331,6 +334,10 @@
     -webkit-border-radius: 1px;
     border: 1px solid #b3c4c8;
     width: 225px;
+}
+
+.result-content .slider-div,.slider-div-new{
+        width: inherit;
 }
 
 .account-details .form-group>div:nth-child(3),

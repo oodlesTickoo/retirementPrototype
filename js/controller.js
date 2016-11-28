@@ -433,7 +433,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
 
     noUiSlider.create(retirementAgeSlider, {
-        start: [65],
+        start: [$scope.retirementAge],
         range: {
             'min': [60],
             'max': [75]

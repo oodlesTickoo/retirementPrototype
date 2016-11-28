@@ -115,6 +115,7 @@ body {
 
 .result-details .chart-button {
     padding: 8px 10px;
+    width: 200px;
     text-transform: uppercase;
     color: #424242;
     /*font-weight: 700;*/
@@ -145,6 +146,16 @@ body {
     font-size: 18px;
     padding-right: 9px;
     width: 125px;
+}
+
+.result-content .display-table input {
+    text-align: right;
+    font-weight: bold;
+    color: #003946;
+    font-size: 18px;
+    padding-right: 9px;
+    width: 110px;
+    border-radius: 0;
 }
 
 .page-content .tell-us input {
@@ -229,6 +240,34 @@ body {
         font-weight: 200;
         line-height: 20px;
     }
+    .result-content .value-container .title-div {
+        padding-bottom: 15px;
+    }
+    .result-table {
+        padding-left: 10px;
+    }
+    .small-buttons button {
+        background: #e5ab00 !important;
+        background: -webkit-linear-gradient(270deg, #e5ab00 0%, #f6ce39 100%) !important;
+        background: -webkit-linear-gradient(bottom, #e5ab00 0%, #f6ce39 100%) !important;
+        background: linear-gradient(0deg, #e5ab00 0%, #f6ce39 100%) !important;
+    }
+    .small-buttons {
+        padding-left: 60px;
+    }
+    #bar-chart-m[disabled],
+    #area-chart-m[disabled] {
+        background: #003946 !important;
+        opacity: 1;
+    }
+    .result-content .value-container label {
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 20px;
+    }
+    .result-content .value-container .form-1>div>div>div {
+        width: 50%;
+    }
     .page-content .account-details input,
     .page-content .other-assets input,
     .page-content .spouse-account-details input {
@@ -268,8 +307,8 @@ body {
 }
 
 .other-assets .noUi-horizontal .noUi-handle,
-.spouse-account-details .noUi-horizontal .noUi-handle ,
-.result-details .noUi-horizontal .noUi-handle  {
+.spouse-account-details .noUi-horizontal .noUi-handle,
+.result-details .noUi-horizontal .noUi-handle {
     width: 28px;
     height: 28px;
     background-color: #eaab00;
@@ -382,10 +421,12 @@ input:-webkit-autofill {
 
 .modal-header {
     padding: 5px 8px !important;
+    background-color: #003946;
+    border: 1px solid white;
 }
 
 .modal-body {
-    background-color: #f2f2f2;
+    background-color: white;
 }
 
 .modal-header h4 {
@@ -393,18 +434,22 @@ input:-webkit-autofill {
     font-weight: bold;
     font-size: 20px;
     padding: 5px;
-    color: #003946;
+    color: white;
 }
 
-#myModal1 .modal-footer button {
+#myModal1 .modal-footer button,
+#myModal2 .modal-footer button {
     font-weight: bold;
     font-size: 15px;
     height: 35px;
     margin-top: 6px;
     padding: 0 15px;
+    background-color: #003946;
+    color: white;
 }
 
-#myModal1 .modal-footer img {
+#myModal1 .modal-footer img,
+#myModal2 .modal-footer img {
     width: 30%;
     float: left;
 }
@@ -439,13 +484,15 @@ input:-webkit-autofill {
 }
 
 @media (max-width: 767px) {
-    #myModal1 .modal-footer button {
+    #myModal1 .modal-footer button,
+    #myModal2 .modal-footer button {
         font-weight: bold;
         height: 28px;
         margin-top: 6px;
         padding: 0 7px;
     }
-    #myModal1 .modal-footer img {
+    #myModal1 .modal-footer img,
+    #myModal2 .modal-footer img {
         width: 50%;
     }
     .modal-footer {
@@ -457,14 +504,16 @@ input:-webkit-autofill {
     }
 }
 
-@media (max-width: 425px) and (min-width:375px){
-    #myModal1 .modal-footer button {
+@media (max-width: 425px) and (min-width:375px) {
+    #myModal1 .modal-footer button,
+    #myModal2 .modal-footer button {
         font-weight: bold;
         height: 28px;
         margin-top: 14px;
         padding: 0 7px;
     }
-    #myModal1 .modal-footer img {
+    #myModal1 .modal-footer img,
+    #myModal2 .modal-footer img {
         width: 50%;
     }
     .modal-footer {
@@ -502,24 +551,67 @@ body {
     padding-bottom: 50px;
 }
 
+
 /*.highcharts-container{width:100% !important; height:100% !important;}*/
 
-.save-print-row a:hover{
-	cursor:pointer;
+.save-print-row a:hover {
+    cursor: pointer;
 }
 
 @media print {
-  .container {
-    width: auto;
-    display:block !important;
-  }
+    .container {
+        width: auto;
+        display: block !important;
+    }
 }
 
-.image-holder img{
-	float:left;
-	width:30%;
+.image-holder img {
+    float: left;
+    width: 30%;
 }
 
-.image-holder button{
-	margin-top:5px;
-} 
+.image-holder button {
+    margin-top: 5px;
+    background-color: #003946;
+    color: white;
+}
+
+.image-holder button:hover {
+    background-color: #003946;
+    color: white;
+}
+
+#bar-chart[disabled],
+#area-chart[disabled] {
+    background: #003946! important;
+    opacity: 1 !important;
+    color: white;
+}
+
+#bar-chart {
+    float: right;
+}
+
+.value-container {
+    margin-right: 0px;
+}
+
+.assumptions-div label {
+    color: #4a7295;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 10px;
+    float: right;
+    font-family: AgendaMedium;
+}
+
+.assumptions-div label:hover {
+    text-decoration: underline;
+}
+
+
+#myModal2 li{
+	padding-bottom: 10px;
+    font-size: 15px;
+
+}
