@@ -45,7 +45,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             document.getElementsByClassName('caret1-down')[0].style.display = 'none';
             document.getElementsByClassName('caret1-right')[0].style.display = 'block';
         } else {
-            console.log("super");
+            // console.log("super");
             d[0].style.backgroundColor = "#f9e6b3";
             document.getElementsByClassName('caret1-down')[0].style.display = 'block';
             document.getElementsByClassName('caret1-right')[0].style.display = 'none';
@@ -58,7 +58,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             document.getElementsByClassName('caret2-down')[0].style.display = 'none';
             document.getElementsByClassName('caret2-right')[0].style.display = 'block';
         } else {
-            console.log("super1");
+            // console.log("super1");
             d[1].style.backgroundColor = "#f9e6b3";
             document.getElementsByClassName('caret2-down')[0].style.display = 'block';
             document.getElementsByClassName('caret2-right')[0].style.display = 'none';
@@ -246,7 +246,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $('#select-spouse-option').on('changed.bs.select', function(e) {
         $scope.spouseOption = $(this).selectpicker('val') <= 0;
-        console.log("spouse option set to", $scope.spouseOption);
+        // console.log("spouse option set to", $scope.spouseOption);
         $timeout(0);
         var assetsDiv = document.getElementById("other-assets-div");
         assetsDiv.classList.toggle("colorChange");
@@ -259,14 +259,14 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $('#select-gender-option').on('changed.bs.select', function(e) {
         $scope.genderOption = $(this).selectpicker('val') <= 0;
-        console.log("gender option set to", $scope.genderOption);
+        // console.log("gender option set to", $scope.genderOption);
         $timeout(0);
         leMember1 = $scope.genderOption ? maleExpectancy[$scope.age] : femaleExpectancy[$scope.age];
     });
 
     $('#select-gender-option-spouse').on('changed.bs.select', function(e) {
         $scope.genderOptionSpouse = $(this).selectpicker('val') > 0;
-        console.log("spouse gender option set to", $scope.genderOptionSpouse);
+        // console.log("spouse gender option set to", $scope.genderOptionSpouse);
         $timeout(0);
         leMember2 = $scope.genderOptionSpouse ? maleExpectancy[$scope.ageSpouse] : femaleExpectancy[$scope.ageSpouse];
 
@@ -274,19 +274,19 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $('#select-house-option').on('changed.bs.select', function(e) {
         $scope.houseOption = $(this).selectpicker('val') <= 0;
-        console.log("house option set to", $scope.houseOption);
+        // console.log("house option set to", $scope.houseOption);
         $timeout(0);
     });
 
     $('#select-pension-drawdown').on('changed.bs.select', function(e) {
         $scope.showPensionOption = $(this).selectpicker('val') <= 0;
-        console.log("choose pension option set to", $scope.showPensionOption);
+        // console.log("choose pension option set to", $scope.showPensionOption);
         $timeout(0);
     });
 
     $('#select-pension-drawdown-spouse').on('changed.bs.select', function(e) {
         $scope.showPensionOptionSpouse = $(this).selectpicker('val') <= 0;
-        console.log("choose spouse pension option set to", $scope.showPensionOptionSpouse);
+        // console.log("choose spouse pension option set to", $scope.showPensionOptionSpouse);
         $timeout(0);
     });
 
@@ -1189,14 +1189,14 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     annualSalarySlider.noUiSlider.on('update', function(values, handle) {
-        console.log("sli up");
+        // console.log("sli up");
         annualSalaryInput.value = values[handle];
         $scope.annualSalary = (values[handle]);
         $timeout(0);
     });
 
         annualSalarySliderNew.noUiSlider.on('update', function(values, handle) {
-            console.log("newsli up");
+            // console.log("newsli up");
         annualSalaryInputNew.value = values[handle];
         $scope.annualSalaryNew = (values[handle]);
         $timeout(0);
@@ -1585,12 +1585,12 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     annualSalaryInput.addEventListener("change", function() {
-        console.log("sli ch");
+        // console.log("sli ch");
         annualSalarySlider.noUiSlider.set($scope.annualSalary);
     });
 
         annualSalaryInputNew.addEventListener("change", function() {
-                        console.log("newsli change");
+                        // console.log("newsli change");
 
         annualSalarySliderNew.noUiSlider.set($scope.annualSalaryNew);
     });
@@ -1812,7 +1812,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     });
 
     annualSalarySlider.noUiSlider.on('set', function(values, handle){
-        console.log("sli set");
+        // console.log("sli set");
                 $scope.enableNewSliders = false;
         annualSalaryInput.value = values[handle];
         $scope.annualSalary = (values[handle]);
@@ -2561,9 +2561,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
 
     $scope.calculateFinal = function(isValid,closeInputs) {
 
-        console.log($scope.newChangesApplied);
+        // console.log($scope.newChangesApplied);
 
-        console.log("calculating");
+        // console.log("calculating");
 
         if (isValid) {
 
@@ -2775,7 +2775,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                 AreaChartService.createChart(member1APArray.slice(0, 5 + Math.max(Math.ceil(leMember1), Math.ceil(leMember2))), member2APArray.slice(0, 5 + Math.max(Math.ceil(leMember1), Math.ceil(leMember2))), member1PensionArray.slice(0, 5 + Math.max(Math.ceil(leMember1), Math.ceil(leMember2))), member2PensionArray.slice(0, 5 + Math.max(Math.ceil(leMember1), Math.ceil(leMember2))), leMember1, leMember2, true, targetIncome);
 
             }
-            console.log("calculated");
+            // console.log("calculated");
         } else {
             $("#myModal").modal('show');
             $("html, body").animate({ scrollTop: $("#tell-us").position().top + 80 }, "slow");
@@ -2982,6 +2982,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     };
 
     $scope.resetSliders = function(){
+        window.contentRevealOptions.reset = true;
+        sr.reveal('.contents',contentRevealOptions);
+        // console.log(contentRevealOptions);
         var sliders = document.getElementsByClassName("slider-div");
         [].forEach.call(sliders,function(slider){
             slider.noUiSlider.reset();})
