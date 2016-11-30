@@ -90,6 +90,20 @@ body {
     background-color: #dbe7ea;
 }
 
+.general-details .icon-container i,
+.general-details-results .icon-container i{
+    background-color: #61746b;
+}
+
+.general-details{
+    background-color: #f3f5f4;
+}
+
+
+.general-details-results {
+    background-color: #e1e8e4;
+}
+
 .page-content .ttrForm .submit-button {
     width: initial;
     margin: 0 auto;
@@ -97,7 +111,7 @@ body {
     font-size: 16px;
     display: block;
     padding: 8px 0px;
-    width: 330px;
+    width: 300px;
     text-transform: uppercase;
     font-size: 22px;
     color: #424242;
@@ -122,9 +136,9 @@ body {
     /*margin-right:10px;*/
     font-family: AgendaMedium;
     background: #e5ab00;
-    background: -webkit-linear-gradient(270deg, #e5ab00 0%, #f6ce39 100%);
-    background: -webkit-linear-gradient(bottom, #e5ab00 0%, #f6ce39 100%);
-    background: linear-gradient(0deg, #e5ab00 0%, #f6ce39 100%);
+    background: -webkit-linear-gradient(0deg,#72cce0 0%,#72cce0 100%);
+    background: -webkit-linear-gradient(0deg,#72cce0 0%,#72cce0 100%);
+    background: linear-gradient(0deg,#72cce0 0%,#72cce0 100%);
 }
 
 .page-content .ttrForm .submit-button:hover {

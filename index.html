@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-select.min.css">
     <link rel="stylesheet" href="css/nouislider.min.css">
-    <link rel="stylesheet" href="css/custom-green.css">
-    <link rel="stylesheet" href="css/custom2-green.css">
+    <link rel="stylesheet" href="css/custom-blue.css">
+    <link rel="stylesheet" href="css/custom2-blue.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="bower_components/angularPrint/angularPrint.css">
     <link rel="stylesheet" href="css/font-awesome-animation.min.css">
-    <!-- <link rel="stylesheet" href="css/aos.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
 </head>
 
 <body print-section ng-cloak>
     <div class="container" style="display: block;" ng-controller="TTRController">
-        <div class="row page-heading">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="row title-bar">
-                    Retirement Adequacy Calculator
-                </div>
+        <div class="row page-heading ">
+            <div class="col-xs-12 " style="background: radial-gradient(#8cc63e,#6d9b2e);    background: radial-gradient(#91B6BE,#91B6BE);">
+                <div class=" title-bar ">
+                    Retirement Adequacy Calculator                    
+                </div>                
+                <button data-toggle="modal" data-target="#myModal1" class=" feedback-menu" style="">Your Feedback</button> 
             </div>
         </div>
         <div class="row page-content" id="inputs">
@@ -38,7 +38,6 @@
                             <div class="banner-text display-table-cell vertical-align-middle text-center">
                                 <h2>Are Your Savings Adequate?</h2>
                                 <p>The Retirement Adequacy Calculator is a tool designed to help you determine whether you and your partner's retirement savings will provide you the retirement that you both want to enjoy.</p>
-                                <!-- <p>Tell us about yourself to see how your net worth compares to other Canadians like you. Understanding the difference between <span class="bold">what you own</span> (your assets) and <span class="bold">what you owe</span> (your liabilities) is a great way to help you plan for the future.</p> -->
                             </div>
                             <div class="header-banner display-table-cell vertical-align-middle "><img src="images/header-image.jpg" class="img-responsive" alt=""></div>
                         </div>
@@ -705,6 +704,20 @@
                         </div>
                     </div>
                 </form>
+                <div class="row boxes general-details " >                    
+                    <div class="col-sm-2 col-xs-12" >
+                        <div class="icon-container">
+                            <i class="fa fa-lightbulb-o"></i>
+                            <p class="visible-xs details-xs">
+                                GENERAL ADVICE NOTICE:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-xs-12 contents" >
+                        <h2 class="hidden-xs heading">GENERAL ADVICE NOTICE:</h2>
+                        <p class="sub-para">If you choose one of the above portfolios then you are doing so under the general advice rules. We will open an account for you and manage the asset allocation for you based on your chosen portfolio. This will apply to your superannuation account as well as your savings without providing personal advice" If you want to enlist the services of an adviser that is able to construct a full financial plan for you then please click on the <strong>Your Feedback</strong> button on top of the page.</p>
+                    </div>                        
+                </div>
             </div>
         </div>
         <div class="row result-content" id="results" style="display: none">
@@ -738,7 +751,7 @@
                     </div>
                     <div class="col3 col-xs-12 col-sm-4 col-md-4 col-lg-4" >
                         <div class="col3-d1" style="display: none;"><strong>You’ve got some more saving to do.</strong>You will need to <strong>contribute more</strong> in order to reach your <strong>retirement savings goal.</strong></div>
-                        <div class="col3-d1"><strong>You’re almost there!</strong> You will need to <strong>contribute a little more</strong> to your retirement savings to reach your retirement savings goal.</div>
+                        <div class="col3-d1"><strong>You’re almost there!</strong> You will need to <strong>contribute a little more</strong> to your retirement savings or work a little longer.</div>
                         <div class="col3-d1" style="display: none;"><strong>Your savings are right on track!</strong> Looks like you’re on track to reach your retirement savings goal.</div>
                         <div class="col3-d2"><strong>Speak with an advisor today</strong> to find out how your age and lifestyle can affect your savings plan.</div>
                     </div>
@@ -938,6 +951,20 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row boxes general-details-results " >
+                    <div class="col-sm-2 col-xs-12" >
+                        <div class="icon-container">
+                            <i class="fa fa-lightbulb-o"></i>
+                            <p class="visible-xs details-xs">
+                                GENERAL ADVICE NOTICE:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-xs-12 contents" >
+                        <h2 class="hidden-xs heading">GENERAL ADVICE NOTICE:</h2>
+                        <p class="sub-para">If you choose one of the above portfolios then you are doing so under the general advice rules. We will open an account for you and manage the asset allocation for you based on your chosen portfolio. This will apply to your superannuation account as well as your savings without providing personal advice" If you want to enlist the services of an adviser that is able to construct a full financial plan for you then please click on the <strong>Your Feedback</strong> button on top of the page.</p>
+                    </div>                        
                 </div>
             </div>
         </div>

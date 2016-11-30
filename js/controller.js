@@ -12,11 +12,11 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.forms = {};
 
     $scope.personalDetails = {
-        /*firstName : "Amit",
+        firstName : "Amit",
         lastName : "Kumar",
         email : "iamitkrs@gmail.com",
         mobile: 412121212,
-        postalCode : 1234*/
+        postalCode : 1234
     };
 
     var d = document.getElementsByClassName('title-div');
@@ -41,12 +41,12 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $(".form-1").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
 
         if ($scope.isMenuDrop1) {
-            d[0].style.backgroundColor = "#eaab00";
+            d[0].style.backgroundColor = "#91B6BE";
             document.getElementsByClassName('caret1-down')[0].style.display = 'none';
             document.getElementsByClassName('caret1-right')[0].style.display = 'block';
         } else {
             // console.log("super");
-            d[0].style.backgroundColor = "#f9e6b3";
+            d[0].style.backgroundColor = "#dbe3e6";
             document.getElementsByClassName('caret1-down')[0].style.display = 'block';
             document.getElementsByClassName('caret1-right')[0].style.display = 'none';
         }

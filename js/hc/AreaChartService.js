@@ -5,12 +5,22 @@ app.service('AreaChartService', function() {
         // console.log(le1,le2);
 
         //console.log(target);
-        Highcharts.setOptions({
-            lang: {
-                thousandsSep: ','
-            },
-            colors: ["#7CB5EC","#434348","#90ed7d","#FFBC75"]
-        });
+        if (spouseOption) {
+            Highcharts.setOptions({
+                lang: {
+                    thousandsSep: ','
+                },
+                colors: ["#013035", "#07d6ed", "#039aaa", "#02606b"]
+            });
+        } else {
+            Highcharts.setOptions({
+                lang: {
+                    thousandsSep: ','
+                },
+                colors: ["#013035", "#039aaa", "#07d6ed", "#02606b"]
+            });
+        }
+
 
         var plotLineId = 'Life Expectancy Member 1'; // To identify for removal
         var plotLineId1 = 'Life Expectancy Member 2'; // To identify for removal
@@ -19,7 +29,7 @@ app.service('AreaChartService', function() {
 
         // Plot line options for adding
         plotLineOptions = {
-            color: '#2443af',
+            color: '#6ff229',
             id: plotLineId,
             width: 2,
             value: le1,
@@ -27,12 +37,14 @@ app.service('AreaChartService', function() {
             label: {
                 text: le1 + " years",
                 style: {
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    fontSize:'15px'
+
                 }
             }
         };
         plotLineOptions1 = {
-            color: '#12841f',
+            color: '#dbed1e',
             id: plotLineId1,
             width: 2,
             value: le2,
@@ -40,12 +52,13 @@ app.service('AreaChartService', function() {
             label: {
                 text: le2 + " years",
                 style: {
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    fontSize:'15px'
                 }
             }
         };
         plotLineOptions2 = {
-            color: 'red',
+            color: '#042556',
             id: plotLineId2,
             width: 3,
             value: target,
@@ -53,7 +66,8 @@ app.service('AreaChartService', function() {
                 text: "$" + target,
                 align: "right",
                 style: {
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    fontSize:'15px'
                 }
             }
         };
